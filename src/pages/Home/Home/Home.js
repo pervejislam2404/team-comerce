@@ -1,12 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
+import HomeProducts from "../HomeProducts/HomeProducts";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <h2>Siam</h2>
-      <h2>pervej</h2>
+      <HomeProducts />
     </div>
   );
 };
