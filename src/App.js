@@ -1,12 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'bootstrap';
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <h1>this is from pervej islam</h1>
-      <Button variant="info">testing bootstrap button</Button>
+     <Home/>
     </div>
   );
 }
