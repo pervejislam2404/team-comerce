@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
+      <h2>Siam</h2>
     </div>
   );
 };
