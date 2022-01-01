@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
@@ -25,36 +26,52 @@ const HomeProducts = () => {
 
       <div class="row">
         {products?.map((product) => (
-          <div class="col-12 col-md-3 pb-5" key={product._id}>
-            <Card style={{ width: "18rem" }}>
-              <Card.Img
-                style={{ height: "20rem", border: "1px solid lightGray" }}
-                variant="top"
-                src="https://image.freepik.com/free-psd/white-t-shirt-model-front-view-mockup_125540-861.jpg"
-              />
-              <div className="d-flex justify-content-between p-2 shadow-sm">
-                <div className="">
-                  <h4 className="text-secondary">{product.name}</h4>
-                  <small className="p-0 m-0 text-secondary ">
-                    <Rating
-                      readonly
-                      initialRating={product.ratting}
-                      emptySymbol="bi bi-star"
-                      fullSymbol="bi bi-star-fill"
-                    />
-                  </small>
-                  <p className="p-0 m-0 text-secondary">$ {product.price}</p>
+          <div
+            class="col-12 col-md-3 pb-5 d-flex justify-content-center"
+            key={product._id}
+          >
+            <Link
+              className="text-decoration-none text-secondary"
+              to={`/singleProductDetail/${product._id}`}
+            >
+              <Card style={{ width: "18rem" }}>
+                <Card.Img
+                  style={{ height: "20rem", border: "1px solid lightGray" }}
+                  variant="top"
+                  src={product.img}
+                />
+                <div className="shadow-sm p-2 ">
+                  <div className="d-flex justify-content-between ">
+                    <div className="">
+                      <h4 className="text-secondary">{product.name}</h4>
+                      <small className="p-0 m-0 text-secondary ">
+                        <Rating
+                          readonly
+                          initialRating={product.ratting}
+                          emptySymbol="bi bi-star"
+                          fullSymbol="bi bi-star-fill"
+                        />
+                      </small>
+                      <p className="p-0 m-0 text-secondary">
+                        $ {product.price}
+                      </p>
+                    </div>
+                    <div className="">
+                      <p>
+                        <i class="bi bi-bag-check-fill text-secondary"></i>
+                      </p>
+                      <p>
+                        <i class="bi bi-eye-fill text-secondary"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <div className="">Color</div>
+                    <div className="">S M X XL</div>
+                  </div>
                 </div>
-                <div className="">
-                  <p>
-                    <i class="bi bi-bag-check-fill text-secondary"></i>
-                  </p>
-                  <p>
-                    <i class="bi bi-eye-fill text-secondary"></i>
-                  </p>
-                </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
           </div>
         ))}
       </div>
