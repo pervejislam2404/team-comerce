@@ -4,9 +4,10 @@ import { Spinner } from 'react-bootstrap';
 import { Navigate, useLocation } from 'react-router-dom';
 const PrivateRoutes = ({ children, ...rest }) => {
     const user = useSelector((state) => state.statesCounter.user)
+    const isloading = useSelector((state) => state.statesCounter.isLoading)
     // const { user, isLoading } = useAuth();
     let location = useLocation();
-    if (!user?.email) {
+    if (isloading) {
         return <div className='text-center'><Spinner animation="border" variant="danger" />
         </div>
     }
