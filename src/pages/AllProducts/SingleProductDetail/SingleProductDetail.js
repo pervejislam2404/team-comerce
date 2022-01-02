@@ -90,8 +90,8 @@ const SingleProductDetail = () => {
             <Rating
               readonly
               initialRating={product.ratting}
-              emptySymbol="bi bi-star"
-              fullSymbol="bi bi-star-fill"
+              emptySymbol="bi bi-star ratingEmpty"
+              fullSymbol="bi bi-star-fill ratingFull"
             />
             <p>{product.description}</p>
             <div className="d-flex justify-content-between">
@@ -125,8 +125,8 @@ const SingleProductDetail = () => {
                 <Rating
                   readonly
                   initialRating={product.ratting}
-                  emptySymbol="bi bi-star"
-                  fullSymbol="bi bi-star-fill"
+                  emptySymbol="bi bi-star ratingEmpty"
+                  fullSymbol="bi bi-star-fill ratingFull"
                 />
               </p>
               <p>
@@ -174,8 +174,8 @@ const SingleProductDetail = () => {
                         <Rating
                           readonly
                           initialRating={pd.ratting}
-                          emptySymbol="bi bi-star"
-                          fullSymbol="bi bi-star-fill"
+                          emptySymbol="bi bi-star ratingEmpty"
+                          fullSymbol="bi bi-star-fill ratingFull"
                         />
                       </p>
                       <p>Price $ {product.price}</p>

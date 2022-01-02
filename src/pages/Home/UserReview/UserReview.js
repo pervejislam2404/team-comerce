@@ -47,8 +47,8 @@ const UserReview = () => {
               <Rating
                 readonly
                 initialRating="4"
-                emptySymbol="bi bi-star"
-                fullSymbol="bi bi-star-fill"
+                emptySymbol="bi bi-star ratingEmpty"
+                fullSymbol="bi bi-star-fill ratingFull"
               />
             </p>
             <p>
@@ -73,8 +73,8 @@ const UserReview = () => {
               <Rating
                 readonly
                 initialRating="5"
-                emptySymbol="bi bi-star"
-                fullSymbol="bi bi-star-fill"
+                emptySymbol="bi bi-star ratingEmpty"
+                fullSymbol="bi bi-star-fill ratingFull"
               />
             </p>
             <p>

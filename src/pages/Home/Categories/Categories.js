@@ -131,7 +131,7 @@ const Categories = () => {
               </Button>
             </Link>
           </div>
-        </Col>
+        </Col> 
       </Row>
     </Container>
   );
