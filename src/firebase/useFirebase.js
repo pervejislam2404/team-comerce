@@ -50,8 +50,8 @@ firebaseInitialize();
     dispatch(setUser(user));
     // saveUser(user?.email, user?.displayName, 'PUT')
 
-    const destination = location?.state?.from || '/';
-    navigate(destination);
+    // const destination = location?.state?.from || '/';
+    // navigate(destination);
   })
   .catch((error) => {
     const errorMessage = error.message;

@@ -5,11 +5,19 @@ import profile from "./profile.png";
 import google from './google.png';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import useFirebase from '../../../firebase/useFirebase';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const {googleSign} = useFirebase();
+  const {googleSign,signWithEmailPass} = useFirebase();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const navigate = useNavigate();
+  const location = useLocation(); 
+
+
+  const onSubmit = (data) => {
+    signWithEmailPass(data?.email, data?.password, location, navigate)
+  };
 
 
   const handleGoogleSign = ()=>{
@@ -52,7 +60,7 @@ const Login = () => {
                 aria-describedby="basic-addon1"
                 />
             </InputGroup>
-              <Button className="d-block w-100 text-light fs-5 my-4" variant="info">Log In</Button>
+              <Button type="submit" className="d-block w-100 text-light fs-5 my-4" variant="info">Log In</Button>
 
               <div className="text-center">
               <h5>--------or login with---------</h5>
@@ -61,6 +69,10 @@ const Login = () => {
                   <span onClick={handleGoogleSign} style={{backgroundColor:'lightgray'}} className="p-4 rounded"><img className="" src={google} alt="" /></span>
               </div>
             </form>
+
+            <div className="text-center">
+                 <h6><span>Already have an account? </span><Link className="text-decoration-none" to="/register">Sign in</Link></h6> 
+            </div>
           </div>
 
         </div>
