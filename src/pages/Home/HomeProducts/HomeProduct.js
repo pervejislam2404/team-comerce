@@ -4,7 +4,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import "./HomeProduct.css";
 
-const HomeProduct = ({ product }) => {
+const HomeProduct = ({ product, setModalShow }) => {
   return (
     <div
       className="col-12 col-md-3 pb-5 d-flex justify-content-center "
@@ -55,6 +55,7 @@ const HomeProduct = ({ product }) => {
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Quick view"
+                onClick={() => setModalShow(true)}
               >
                 <i class="bi bi-eye-fill text-secondary"></i>
               </button>
