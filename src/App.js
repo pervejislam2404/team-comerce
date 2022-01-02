@@ -22,12 +22,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/private" element={<PrivateRoutes />} />
+          {/* <Route path="/private" element={<PrivateRoutes />} /> */}
           <Route path="/allProducts" element={<AllProducts />} />
           <Route path="/singleProductDetail/:id" element={<SingleProductDetail />}
           />
-          <Route path="/dashboard" element={<Dashboard />}
-          >
+          <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
             <Route path="/dashboard" element={""} />
           </Route>
         </Routes>
