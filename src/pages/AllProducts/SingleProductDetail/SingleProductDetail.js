@@ -44,11 +44,11 @@ const SingleProductDetail = () => {
   };
   return (
     <div>
-      <div className="background ">
+      {/* <div className="background ">
         <div className="container">
           <h2 className="p-3">Single Product Detail</h2>
         </div>
-      </div>
+      </div> */}
       <div className="container py-5">
         <div className="row">
           <div className="col-md-5">
