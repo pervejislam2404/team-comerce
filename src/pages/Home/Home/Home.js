@@ -1,13 +1,13 @@
 import React from "react";
+import Banner from '../Banner/Banner';
 import HomeProducts from '../HomeProducts/HomeProducts';
 import UserReview from '../UserReview/UserReview';
 import HappyClient from '../HappyClient/HappyClient';
-import Banner from '../Banner/Banner';
 
 const Home = () => {
   return (
     <div>
-      <Banner/>
+      <Banner />
       <HomeProducts />
       <UserReview />
       <HappyClient />
