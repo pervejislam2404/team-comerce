@@ -50,7 +50,7 @@ const Categories = () => {
               <img
                 className="img-fluid mx-3"
                 width="80px"
-                src="https://as2.ftcdn.net/v2/jpg/02/13/64/55/1000_F_213645596_loormHyI0s6rtzHALtPVT2Zj2YG218ic.jpg"
+                src="https://cdn-icons.flaticon.com/png/512/2912/premium/2912536.png?token=exp=1641124197~hmac=d337d542a9bbd587452b13ecb1109e82"
                 alt=""
               />
             </div>
