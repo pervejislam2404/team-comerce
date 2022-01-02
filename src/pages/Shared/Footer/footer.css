@@ -1,0 +1,15 @@
+/* footer styles */
+.footer{
+    background-color:black;
+    min-height: 310px;
+    color: floralwhite;
+    position: relative;
+    padding-top: 20px;
+}
+@media (max-width:700px) {
+    
+    .social{
+        margin-bottom: 50px;
+    }
+    
+}

@@ -1,0 +1,117 @@
+.prim-bg{
+    background-color: rgba(0, 0, 0, 0.7);
+    background-blend-mode: darken,luminosity;
+    min-width: 99.6vw ;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height:100vh ;
+    /* color: #64e764; */
+    color: snow;
+    overflow: hidden;
+  }
+    
+  a{
+    text-decoration: none;
+    border: none;
+  }
+  /* whole dashboard content */
+  #wrapper {
+    overflow-x: hidden;
+    margin-left: -11px;
+     overflow: hidden;
+    /* position: relative; */
+  }
+  .siding{
+    background-color: #191D2B;
+    /* position: fixed; */
+    z-index: 11;
+    border-right: 1px solid #2e344e;
+    transform-origin: left;
+  }
+  /* side drawer */
+  #sidebar-wrapper {
+    min-height: 100vh;
+    width: 275px;
+    /* padding-right: 1rem; */
+    /* margin-left: -15rem; */
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+    overflow: hidden;
+    
+  
+  }
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+  
+  }
+  /* data displaying section */
+  #page-content-wrapper {
+    width: 100vw;
+    overflow: hidden;
+  
+  }
+  /* side drawer control */
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }  
+
+  #menu-toggle {
+    cursor: pointer;
+    /* margin-bottom: 0; */
+
+  }
+  .hamburger{
+    display: none;
+    /* display: flex; */
+    background-color: #10121B;
+z-index: 1;
+padding-top: 2.5rem;
+  }
+  .point {
+    cursor: pointer;
+  }
+  .main-content{
+    /* margin-top: -1.6rem; */
+    background-color: #10121B;
+    display: grid;
+    
+  }
+  .content{
+    margin: 5rem 10rem;
+z-index: 1;
+}
+
+  /* display based on screen */
+  @media (max-width: 768px) {
+    .hamburger{
+      display: flex;
+    }
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+    .content{
+      margin: 5rem 2rem;
+  }
+  #wrapper{
+    width: 90vw;
+
+  }
+    /* #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+      overflow: hidden;
+    
+    } */
+  
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -17rem;
+    overflow: hidden;
+  
+    }
+  }
