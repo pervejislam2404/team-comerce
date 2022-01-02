@@ -1,0 +1,10 @@
+.shared{
+    margin-top: -10rem;
+    
+}
+
+@media (max-width:900px) {
+    .shared{
+        margin-top: 0rem;
+    }
+}
