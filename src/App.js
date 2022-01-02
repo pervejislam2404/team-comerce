@@ -10,6 +10,7 @@ import SingleProductDetail from "./pages/AllProducts/SingleProductDetail/SingleP
 import Footer from "./pages/Shared/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PrivateRoutes from "./pages/Shared/Private/PrivateRoutes";
+import SharedDash from "./pages/Dashboard/DashRoute/SharedDash";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/singleProductDetail/:id" element={<SingleProductDetail />}
           />
           <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
-            <Route path="/dashboard" element={""} />
+            <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
           </Route>
         </Routes>
         <Footer />

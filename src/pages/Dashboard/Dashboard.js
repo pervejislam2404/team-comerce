@@ -24,9 +24,9 @@ const Dashboard = () => {
                     </div>
                     <ListGroup variant="flush" className='me-3'>
                         {/* user routes*/}
-                        {!admin && <div>
-                            <NavLink to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Home</ListGroup.Item></NavLink>
-                        </div>}
+
+                        <NavLink to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Home</ListGroup.Item></NavLink>
+
                         {/* admin routes*/}
                         {admin && <div>
 
