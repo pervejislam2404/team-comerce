@@ -72,7 +72,7 @@ const UserReview = () => {
             <p>
               <Rating
                 readonly
-                initialRating="4"
+                initialRating="5"
                 emptySymbol="bi bi-star"
                 fullSymbol="bi bi-star-fill"
               />

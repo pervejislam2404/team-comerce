@@ -5,7 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
 import "./SingleProductDetail.css";
-const SingleProductDetail = ({ deviceType }) => {
+const SingleProductDetail = () => {
   let { id } = useParams();
   const [img, setImg] = useState("");
   const [product, setProduct] = useState({});
@@ -71,7 +71,7 @@ const SingleProductDetail = ({ deviceType }) => {
                     return (
                       <div key={img}>
                         <img
-                          style={{ cursor: "pointer" }}
+                          style={{ cursor: "pointer !important" }}
                           className="w-75"
                           height="70px"
                           src={img}
@@ -162,7 +162,11 @@ const SingleProductDetail = ({ deviceType }) => {
                     key={pd._id}
                   >
                     <div className="">
-                      <img style={{ width: "80px" }} src={pd.img} alt="" />
+                      <img
+                        style={{ width: "80px", cursor: "pointer" }}
+                        src={pd.img}
+                        alt=""
+                      />
                     </div>
                     <div className="">
                       <h4>{pd.name}</h4>
