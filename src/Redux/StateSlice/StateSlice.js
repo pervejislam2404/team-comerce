@@ -7,19 +7,25 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
     name: 'stateCounter',
     initialState: {
-        value: 0,
+        user: {},
+        errorMsg: '',
+        isLoading: true
+
     },
     reducers: {
-        decrement: (state) => {
-            state.value -= 1
+        setErrorMsg: (state, { payload }) => {
+            state.errorMsg = payload;
         },
-        incrementByAmount: (state, { payload }) => {
-            state.value += payload
+        setUser: (state, { payload }) => {
+            state.user = payload;
         },
+        setIsLoading: (state, { payload }) => {
+            state.isLoading = payload;
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { decrement, incrementByAmount } = counterSlice.actions
+export const { setErrorMsg, setUser, setIsLoading } = counterSlice.actions
 
 export default counterSlice.reducer
