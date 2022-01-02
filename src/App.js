@@ -29,6 +29,7 @@ function App() {
           />
           <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
             <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
+            <Route path="/dashboard/admin" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
           </Route>
         </Routes>
         <Footer />
