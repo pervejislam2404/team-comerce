@@ -46,18 +46,114 @@ const SingleProductDetail = ({ deviceType }) => {
     <div className="container py-5">
       <div className="container">
         <div className="row">
-          <div className="">
-            <h4>Best selling Products</h4>
+          <div className="col-md-5">
+            <img
+              className="w-100"
+              height="400px"
+              src={img || product.img}
+              alt=""
+            />
+            <div className="py-5">
+              {product?.images?.length && (
+                <Carousel
+                  ssr
+                  itemClass="image-item"
+                  responsive={responsive}
+                  arrows={true}
+                  // infinite={true}
+                >
+                  {product?.images?.map((img) => {
+                    return (
+                      <div key={img}>
+                        <img
+                          style={{ cursor: "pointer" }}
+                          className="w-75"
+                          height="70px"
+                          src={img}
+                          alt=""
+                          onClick={(e) => setImg(e.target.src)}
+                        />
+                      </div>
+                    );
+                  })}
+                </Carousel>
+              )}
+            </div>
           </div>
-          {products.length && (
-            <div className="col-md-3">
+          <div className="col-md-7">
+            <h4>{product.name}</h4>
+            <Rating
+              readonly
+              initialRating={product.ratting}
+              emptySymbol="bi bi-star"
+              fullSymbol="bi bi-star-fill"
+            />
+            <p>{product.description}</p>
+            <div className="d-flex justify-content-between">
+              <b>
+                Price $ <b>{product.price}</b>
+              </b>
+              <p>In stock {product.price}</p>
+            </div>
+            <div className="d-flex justify-content-between">
+              <p>color</p>
+              <Button variant="primary">Add to cart</Button>
+            </div>
+          </div>
+        </div>
+        {/* review */}
+        <div className="border p-4">
+          <h4>Review</h4>
+          <div className="d-flex">
+            <div>
+              <img
+                width="100px"
+                height="100px"
+                className="me-4 border"
+                src={product.img}
+                alt=" "
+              />
+            </div>
+            <div>
+              <p>User Name</p>
+              <p>
+                <Rating
+                  readonly
+                  initialRating={product.ratting}
+                  emptySymbol="bi bi-star"
+                  fullSymbol="bi bi-star-fill"
+                />
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+                at dolores consectetur ipsam, eveniet impedit iste nulla modi
+                voluptate, aliquid corporis, maiores obcaecati voluptatem maxime
+                itaque! Asperiores molestiae pariatur nisi recusandae minus
+                saepe non vitae placeat cumque veritatis, repudiandae, deserunt,
+                illo officiis sed eligendi fugit in dolores ab eius neque!
+              </p>
+            </div>
+          </div>
+          <hr />
+        </div>
+        {/* related products */}
+        <div className="py-3">
+          <h4 className="p-3"> Related products</h4>
+          {products?.length && (
+            <Carousel
+              ssr
+              itemClass="image-item"
+              responsive={responsive}
+              arrows={true}
+              infinite={true}
+            >
               {products?.map((pd) => (
                 <Link
-                  className="text-decoration-none text-secondary"
                   to={`/singleProductDetail/${pd._id}`}
+                  className="text-decoration-none text-secondary"
                 >
                   <div
-                    className="d-flex justify-content-around align-items-center shadow-sm my-3"
+                    className="border d-flex justify-content-around align-items-center py-3 mx-1"
                     key={pd._id}
                   >
                     <div className="">
@@ -78,132 +174,8 @@ const SingleProductDetail = ({ deviceType }) => {
                   </div>
                 </Link>
               ))}
-            </div>
+            </Carousel>
           )}
-          <div className="col-md-9">
-            <div className="row">
-              <div className="col-md-6">
-                <img
-                  className="w-100"
-                  height="400px"
-                  src={img || product.img}
-                  alt=""
-                />
-                <div className="py-5">
-                  {product?.images?.length && (
-                    <Carousel
-                      ssr
-                      itemClass="image-item"
-                      responsive={responsive}
-                      arrows={true}
-                      // infinite={true}
-                    >
-                      {product?.images?.map((img) => {
-                        return (
-                          <div key={img}>
-                            <img
-                              style={{ cursor: "pointer" }}
-                              className="w-75"
-                              height="70px"
-                              src={img}
-                              alt=""
-                              onClick={(e) => setImg(e.target.src)}
-                            />
-                          </div>
-                        );
-                      })}
-                    </Carousel>
-                  )}
-                </div>
-              </div>
-              <div className="col-md-6">
-                <h4>{product.name}</h4>
-                <Rating
-                  readonly
-                  initialRating={product.ratting}
-                  emptySymbol="bi bi-star"
-                  fullSymbol="bi bi-star-fill"
-                />
-                <p>{product.description}</p>
-                <div className="d-flex justify-content-between">
-                  <p>Price $ {product.price}</p>
-                  <p>In stock {product.price}</p>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <p>color</p>
-                  <Button variant="primary">Add to cart</Button>
-                </div>
-              </div>
-            </div>
-            {/* review */}
-            <div className="border p-4">
-              <h4>Review</h4>
-              <div className="d-flex">
-                <div>
-                  <img
-                    width="100px"
-                    height="100px"
-                    className="me-4 border"
-                    src={product.img}
-                    alt=" "
-                  />
-                </div>
-                <div>
-                  <p>User Name</p>
-                  <p>
-                    <Rating
-                      readonly
-                      initialRating={product.ratting}
-                      emptySymbol="bi bi-star"
-                      fullSymbol="bi bi-star-fill"
-                    />
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni at dolores consectetur ipsam, eveniet impedit iste
-                    nulla modi voluptate, aliquid corporis, maiores obcaecati
-                    voluptatem maxime itaque! Asperiores molestiae pariatur nisi
-                    recusandae minus saepe non vitae placeat cumque veritatis,
-                    repudiandae, deserunt, illo officiis sed eligendi fugit in
-                    dolores ab eius neque!
-                  </p>
-                </div>
-              </div>
-              <hr />
-              <div className="d-flex">
-                <div>
-                  <img
-                    width="100px"
-                    height="100px"
-                    className="me-4 border"
-                    src={product.img}
-                    alt=" "
-                  />
-                </div>
-                <div>
-                  <p>User Name</p>
-                  <p>
-                    <Rating
-                      readonly
-                      initialRating={product.ratting}
-                      emptySymbol="bi bi-star"
-                      fullSymbol="bi bi-star-fill"
-                    />
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Magni at dolores consectetur ipsam, eveniet impedit iste
-                    nulla modi voluptate, aliquid corporis, maiores obcaecati
-                    voluptatem maxime itaque! Asperiores molestiae pariatur nisi
-                    recusandae minus saepe non vitae placeat cumque veritatis,
-                    repudiandae, deserunt, illo officiis sed eligendi fugit in
-                    dolores ab eius neque!
-                  </p>
-                </div>
-              </div>
-              <hr />
-            </div>
-          </div>
         </div>
       </div>
     </div>
