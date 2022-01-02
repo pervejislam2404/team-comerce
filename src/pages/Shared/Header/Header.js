@@ -41,25 +41,22 @@ const Header = () => {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Nav.Link href="#"><Link className="text-decoration-none text-light" to="/login">Login</Link></Nav.Link>
-              <Nav.Link href="#"><Link className="text-decoration-none text-light" to="/register">Register</Link></Nav.Link>
-              {/* <Nav.Link href="#">Register </Nav.Link> */}
-             {user?.email&& <img height="40" width="40" className="rounded-pill" src={user?.photoURL} alt="" /> }
-             {user?.email&& <p className="text-light lh-0">{user.email}</p> }
 
-             <Nav.Link onClick={handleSignOut} className="bg-danger" href="#">Log Out</Nav.Link>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
+            
               <Nav.Link>
                 <Link
-                  className="text-decoration-none text-secondary"
+                  className="text-decoration-none text-light"
                   to="/allProducts"
                 >
                   products
                 </Link>
               </Nav.Link>
+              <Nav.Link href="#"><Link className="text-decoration-none text-light" to="/login">Login</Link></Nav.Link>
+              <Nav.Link href="#"><Link className="text-decoration-none text-light" to="/register">Register</Link></Nav.Link>
+              {/* <Nav.Link href="#">Register </Nav.Link> */}
+             {user?.email&& <img height="40" width="40" className="rounded-pill" src={user?.photoURL} alt="" /> }
+             {user?.email&& <p className="text-light lh-0">{user.email}</p> }
+             <Nav.Link onClick={handleSignOut} className="bg-danger" href="#">Log Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

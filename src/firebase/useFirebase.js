@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import firebaseInitialize from './firebase.init';
 import { setErrorMsg, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
+import swal from "sweetalert";
 
 firebaseInitialize();
  const googleProvider = new GoogleAuthProvider();
@@ -25,7 +26,14 @@ firebaseInitialize();
             dispatch(setErrorMsg(''));
               const newUser = { email, displayName: name };
               dispatch(setUser(newUser))
-            //   saveUser(email, name, 'POST');
+
+              swal({
+                title: "Sign up success!",
+                icon: "success"
+              });
+             
+
+              saveUser(email, name, 'POST');
               updateProfile(auth.currentUser, {
                   displayName: name
               }).then(() => {
@@ -125,17 +133,17 @@ useEffect(() => {
 
 
 // saving-user-to-database
-// const saveUser = (email, displayName, method) => {
-//   const user = { email, displayName };
-//   fetch('https://guarded-ocean-40685.herokuapp.com/setUser', {
-//       method: method,
-//       headers: {
-//           'content-type': 'application/json'
-//       },
-//       body: JSON.stringify(user)
-//   })
-//       .then()
-// }
+const saveUser = (email, displayName, method) => {
+  const user = { email, displayName };
+  fetch('http://localhost:4000/saveUser', {
+      method: method,
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+  })
+      .then()
+}
 
 
 
