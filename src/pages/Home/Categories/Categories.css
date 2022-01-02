@@ -1,0 +1,24 @@
+.catbg {
+  background: #f7f7f7;
+}
+.catbg:hover {
+  background: rgb(211, 209, 209);
+}
+.img {
+  position: relative;
+}
+.button {
+  /* visibility: hidden; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#img:hover {
+  /* display: none; */
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(226, 226, 233, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
