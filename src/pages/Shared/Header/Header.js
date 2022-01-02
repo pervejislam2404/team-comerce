@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useSelector } from "react-redux";
-import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useFirebase from '../../../firebase/useFirebase';
 
