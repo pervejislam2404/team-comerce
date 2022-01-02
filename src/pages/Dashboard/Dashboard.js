@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, ListGroup, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
+import './dash.css'
 const Dashboard = () => {
     // for now
     const [admin, setadmin] = useState(true)
