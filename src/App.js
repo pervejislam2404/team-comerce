@@ -10,7 +10,9 @@ import SingleProductDetail from "./pages/AllProducts/SingleProductDetail/SingleP
 import Footer from "./pages/Shared/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PrivateRoutes from "./pages/Shared/Private/PrivateRoutes";
-import SharedDash from "./pages/Dashboard/DashRoute/SharedDash";
+import Nopage from "./pages/Shared/Nopage/Nopage";
+import AdminAdd from "./pages/Dashboard/DashRoute/AddAdmin/AdminAdd";
+import SharedDash from "./pages/Shared/sharedDash/SharedDash";
 
 function App() {
   return (
@@ -29,8 +31,10 @@ function App() {
           />
           <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
             <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
-            <Route path="/dashboard/admin" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
+            <Route path="/dashboard/admin" element={<PrivateRoutes><AdminAdd /></PrivateRoutes>} />
           </Route>
+          <Route path="*" element={<Nopage />} />
+
         </Routes>
         <Footer />
       </Router>
