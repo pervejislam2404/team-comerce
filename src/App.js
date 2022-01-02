@@ -7,6 +7,9 @@ import Login from './pages/Shared/Login/Login';
 import Register from './pages/Shared/Register/Register';
 import AllProducts from "./pages/AllProducts/AllProducts/AllProducts";
 import SingleProductDetail from "./pages/AllProducts/SingleProductDetail/SingleProductDetail";
+import Footer from "./pages/Shared/Footer/Footer";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import PrivateRoutes from "./pages/Shared/Private/PrivateRoutes";
 
 function App() {
   return (
@@ -19,11 +22,18 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/private" element={<PrivateRoutes />} />
           <Route path="/allProducts" element={<AllProducts />} />
           <Route path="/singleProductDetail/:id" element={<SingleProductDetail />}
           />
+          <Route path="/dashboard" element={<Dashboard />}
+          >
+            <Route path="/dashboard" element={""} />
+          </Route>
         </Routes>
+        <Footer />
       </Router>
+
     </div>
   );
 }
