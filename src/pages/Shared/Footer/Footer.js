@@ -21,6 +21,14 @@ const Footer = () => {
                             <p>Our Services</p>
                             <p>Cell:+880-129423954</p>
                         </Col>
+                        <Col xs={12} md={6} className='d-flex flex-column align-items-center justify-content-center'>
+                            <p>Follow us at</p>
+                            <div className='d-flex justify-content-center mt-2'>
+                                <img src={facebook} alt="" height='50' width='50' />
+                                <img src={insta} alt="" height='50' width='50' />
+                                <img src={tweet} alt="" height='50' width='50' />
+                            </div>
+                        </Col>
                     </Row>
                 </Col>
             </Row>
