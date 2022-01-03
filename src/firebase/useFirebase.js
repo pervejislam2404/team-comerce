@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import firebaseInitialize from './firebase.init';
-import { setErrorMsg, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
+import { setErrorMsg, setGoogleSignErrorMsg, setIdToken, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
 import swal from "sweetalert";
 
 firebaseInitialize();
@@ -56,14 +56,14 @@ firebaseInitialize();
   .then((userCredential) => {
     const user = userCredential.user;
     dispatch(setUser(user));
-    // saveUser(user?.email, user?.displayName, 'PUT')
+    saveUser(user?.email, user?.displayName, 'PUT')
 
-    // const destination = location?.state?.from || '/';
-    // navigate(destination);
+    const destination = location?.state?.from || '/';
+    navigate(destination);
   })
   .catch((error) => {
     const errorMessage = error.message;
-    dispatch(setErrorMsg(errorMessage));
+    dispatch(setGoogleSignErrorMsg(errorMessage));
   });
 
   }
@@ -81,14 +81,14 @@ const googleSign = (location,navigate)=>{
       const user = result.user;
       dispatch(setIsLoading(false));
       dispatch(setUser(user));
-    //   saveUser(user.email, user.displayName,'PUT')
-    //   const destination = location?.state?.from || '/';
-    //   navigate(destination);
+      saveUser(user.email, user.displayName,'PUT')
+      const destination = location?.state?.from || '/';
+      navigate(destination);
       // ...
     })
     .catch((error) => {
       const errorMessage = error.message;
-      dispatch(setErrorMsg(errorMessage));
+      dispatch(setGoogleSignErrorMsg(errorMessage));
     });
 }
 
@@ -112,7 +112,8 @@ useEffect(() => {
           dispatch(setUser(user));
             getIdToken(user)
                 .then(idToken => {
-                //   dispatch(setIdToken(idToken));
+                  console.log(idToken);
+                  dispatch(setIdToken(idToken));
                 })
         } else {
           dispatch(setUser(user));
