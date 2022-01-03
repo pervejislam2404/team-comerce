@@ -10,7 +10,10 @@ const Technology = () => {
       "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/technology"
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        const sliceData = data.slice(10, 20);
+        setProducts(sliceData);
+      });
   }, []);
   return (
     <div className="row">
@@ -33,31 +36,17 @@ const Technology = () => {
                 src={product.url}
               />
               <div className="shadow-sm p-2 ">
-                <div className="d-flex justify-content-between ">
-                  <div className="">
-                    <h4 className="text-secondary">{product.name}</h4>
-                    <small className="p-0 m-0 text-secondary ">
-                      <Rating
-                        readonly
-                        initialRating={product.star}
-                        emptySymbol="bi bi-star"
-                        fullSymbol="bi bi-star-fill"
-                      />
-                    </small>
-                    <p className="p-0 m-0 text-secondary">$ {product.price}</p>
-                  </div>
-                  <div className="">
-                    <p>
-                      <i class="bi bi-bag-check-fill text-secondary"></i>
-                    </p>
-                    <p>
-                      <i class="bi bi-eye-fill text-secondary"></i>
-                    </p>
-                  </div>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <div className="">Color</div>
-                  <div className="">S M X XL</div>
+                <div className="">
+                  <h4 className="text-secondary">{product.name}</h4>
+                  <small className="p-0 m-0 text-secondary ">
+                    <Rating
+                      readonly
+                      initialRating={product.star}
+                      emptySymbol="bi bi-star"
+                      fullSymbol="bi bi-star-fill"
+                    />
+                  </small>
+                  <p className="p-0 m-0 text-secondary">$ {product.price}</p>
                 </div>
               </div>
             </Card>

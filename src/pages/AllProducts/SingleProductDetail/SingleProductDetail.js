@@ -4,7 +4,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
+import { addToDb } from "../../../utilities/fakedb";
 import "./SingleProductDetail.css";
+
 const SingleProductDetail = () => {
   let { id } = useParams();
   const [img, setImg] = useState("");
@@ -18,13 +20,14 @@ const SingleProductDetail = () => {
       .then((data) => setProduct(data));
   }, [id]);
   useEffect(() => {
-    fetch(`https://limitless-hollows-74908.herokuapp.com/products`)
+    fetch(
+      `https://limitless-hollows-74908.herokuapp.com/getProductByCategory/${product.category}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        const sliceData = data.slice(0, 4);
-        setProducts(sliceData);
+        setProducts(data);
       });
-  }, []);
+  }, [product.category]);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -41,6 +44,9 @@ const SingleProductDetail = () => {
       items: 3,
       paritialVisibilityGutter: 30,
     },
+  };
+  const handleAddToDb = (id) => {
+    addToDb(id);
   };
   return (
     <div>
@@ -93,11 +99,16 @@ const SingleProductDetail = () => {
               <b>
                 Price $ <b>{product.price}</b>
               </b>
-              <p>In stock {product.price}</p>
+              <p>In stock {product.stock}</p>
             </div>
             <div className="d-flex justify-content-between">
               <p>color</p>
-              <Button variant="primary">Add to cart</Button>
+              <Button
+                variant="primary"
+                onClick={() => handleAddToDb(product._id)}
+              >
+                Add to cart
+              </Button>
             </div>
           </div>
         </div>
@@ -154,7 +165,7 @@ const SingleProductDetail = () => {
                     <div className="">
                       <img
                         style={{ width: "80px", cursor: "pointer" }}
-                        src={pd.img}
+                        src={pd.url}
                         alt=""
                       />
                     </div>
@@ -163,7 +174,7 @@ const SingleProductDetail = () => {
                       <p>
                         <Rating
                           readonly
-                          initialRating={pd.ratting}
+                          initialRating={pd.star}
                           emptySymbol="bi bi-star ratingEmpty"
                           fullSymbol="bi bi-star-fill ratingFull"
                         />
