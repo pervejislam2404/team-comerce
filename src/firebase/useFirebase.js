@@ -136,7 +136,7 @@ useEffect(() => {
 // saving-user-to-database
 const saveUser = (email, displayName, method) => {
   const user = { email, displayName };
-  fetch('http://localhost:4000/saveUser', {
+  fetch('https://limitless-hollows-74908.herokuapp.com/saveUser', {
       method: method,
       headers: {
           'content-type': 'application/json'

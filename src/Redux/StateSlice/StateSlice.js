@@ -12,6 +12,7 @@ export const counterSlice = createSlice({
         googleSignErrorMsg: '',
         isLoading: true,
         idToken: '',
+        admin: false,
 
     },
     reducers: {
