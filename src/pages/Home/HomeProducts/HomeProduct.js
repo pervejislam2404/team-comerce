@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-import AddToCartModal from "../AddToCartModal/AddToCartModal";
+import { addToDb } from "../../../utilities/fakedb";
 import "./HomeProduct.css";
 
 const HomeProduct = ({ product }) => {
-  const [modalShow, setModalShow] = useState(false);
+  const handleAddToDb = (id) => {
+    addToDb(id);
+  };
   return (
     <div
       className="col-12 col-md-3 pb-5 d-flex justify-content-center "
@@ -48,18 +50,9 @@ const HomeProduct = ({ product }) => {
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Add to cart"
+                onClick={() => handleAddToDb(product._id)}
               >
                 <i class="bi bi-bag-check-fill text-secondary"></i>
-              </button>
-              <br />
-              <button
-                className="border-0"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Quick view"
-                onClick={() => setModalShow(true)}
-              >
-                <i class="bi bi-eye-fill text-secondary"></i>
               </button>
             </div>
           </div>
@@ -70,11 +63,6 @@ const HomeProduct = ({ product }) => {
         </div>
       </Card>
       {/* </Link> */}
-      <AddToCartModal
-        product={product}
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
     </div>
   );
 };
