@@ -28,6 +28,7 @@ import Shoes from "./pages/AllProducts/AllCategories/Shoes";
 import Watches from "./pages/AllProducts/AllCategories/Watches";
 import Technology from "./pages/AllProducts/AllCategories/Technology";
 import Furniture from "./pages/AllProducts/AllCategories/Furniture";
+import Alluser from "./pages/Dashboard/Alluser/Alluser";
 
 function App() {
   useEffect(() => {
@@ -89,10 +90,17 @@ function App() {
               }
             />
             <Route
+              path="/dashboard/allUser"
+              element={
+                <PrivateRoutes>
+                  <Alluser />
+                </PrivateRoutes>
+              }
+            />
+            <Route
               path="/dashboard/manageAllOrders"
               element={
                 <ManageAllOrders>
-                  <AdminAdd />
                 </ManageAllOrders>
               }
             />
