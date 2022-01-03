@@ -28,14 +28,14 @@ const Alluser = () => {
 
     return (
         <Container data-aos="flip-right" fluid className='pt-3   text-center allorderbg'>
-            <h2 className='text-center fw-bold'>User contact information</h2>
+            <h2 className='text-center fw-bold'><i className="far fa-user"></i> User contact information</h2>
             <hr className='d-block w-50 mb-5 mx-auto' />
             <Container>
                 <Row>
 
                     <Col>
                         <div className="searchDiv h-25 py-2 mb-5 ">
-                            <h2 className='fs-4 fw-bold text-light mt-3'>SearchByName</h2>
+                            <h2 className='fs-4 fw-bold text-light mt-3'>Search By Name</h2>
                             <input className='search w-50' onChange={handlesearch} placeholder='Search by name' type="text" name="search" id="search" />
                         </div>
                     </Col>

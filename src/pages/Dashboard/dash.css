@@ -26,13 +26,44 @@ background-attachment: fixed;
      overflow: hidden;
     /* position: relative; */
   }
-  .siding{
-    background-color: #191D2B;
-    /* position: fixed; */
-    z-index: 11;
-    border-right: 1px solid #2e344e;
-    transform-origin: left;
+  
+  .nav-item{
+    list-style: none;
+    text-align: center;
+    margin-top: 2rem;
+    padding-left: -2rem;
+    margin-left: -0.5rem ;
   }
+  .nav-item a{
+    text-decoration: none;
+    font-size: inherit;
+    color: inherit;
+    display: block;
+    padding: .5rem 0;
+    position: relative;
+  }
+  .nav-item a::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: .4rem;
+    height: 100%;
+    background-color: #0381ff33;
+    transform-origin: bottom;
+    transform: scale(0);
+    overflow-x: hidden;
+    transition: transform .6s, .2s width .3s cubic-bezier(1,-0.16,.6,1.35);
+  }
+  .nav-item a:hover::before{
+    width: 100%;
+    transform: scale(1);
+  }
+  .active{
+    background-color: #037FFF;
+  }
+
+
   /* side drawer */
   #sidebar-wrapper {
     min-height: 100vh;
@@ -70,7 +101,7 @@ background-attachment: fixed;
   .hamburger{
     display: none;
     /* display: flex; */
-    background-color: #10121B;
+    /* background-color: #10121B; */
 z-index: 1;
 padding-top: 2.5rem;
   }
