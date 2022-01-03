@@ -7,7 +7,7 @@ import tweet from './icons8-stack-of-tweets-48.png'
 import './footer.css';
 const Footer = () => {
     return (
-        <Container fluid className='footer  ps-5'>
+        <Container fluid className='footer   ps-5'>
             <Row className='mt-5 pt-5'>
                 {/*  footer img */}
                 <Col xs={12} md={4} className='social ps-5'>

@@ -40,7 +40,7 @@ const ContactInformation = () => {
   };
   return (
     <Container className="my-5">
-      <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center ">
         <Col xs={12} md={6} className=" me-5 p-3 shadow">
           <div className="">
             <h1>Website Name</h1>

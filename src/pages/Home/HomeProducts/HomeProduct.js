@@ -19,12 +19,14 @@ const HomeProduct = ({ product }) => {
       className="text-decoration-none text-secondary"
       to={`/singleProductDetail/${product._id}`}
     > */}
-      <Card style={{ width: "18rem" }} className="cardHover">
-        <Card.Img
-          style={{ height: "20rem", border: "1px solid lightGray" }}
-          variant="top"
-          src={product.url}
-        />
+      <Card style={{ width: "18rem" }} className="cardHover c cb2">
+        <div className="image-box">
+          <Card.Img className="im1"
+            style={{ height: "20rem", border: "1px solid lightGray" }}
+            variant="top"
+            src={product.url}
+          />
+        </div>
         <div className="shadow-sm p-2 ">
           <div className="d-flex justify-content-between ">
             <div className="">

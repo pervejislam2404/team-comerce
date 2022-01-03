@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const UserOrders = () => {
+  let count = 0;
   const Swal = require("sweetalert2");
   const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
@@ -46,6 +47,33 @@ const UserOrders = () => {
       <div className="d-flex justify-content-center pb-5">
         <h2>My orders</h2>
       </div>
+      {/* <Table responsive striped bordered hover variant="dark"> */}
+
+      {/* table header */}
+      {/* <thead>
+        <tr className='text-center'>
+          <th className='fs-3 text-white'>Sl</th>
+          <th className='fs-3 text-white'>Order_ID</th>
+          <th className='fs-3 text-white'>Cancel Order</th>
+        </tr>
+      </thead>
+      <tbody> */}
+      {/* looping data */}
+
+      {/* {orders.map(order =>
+            <tr key={order._id} className='text-center'>
+              <td className='fs-4 text-white '>{++count}</td>
+              <td className='fs-4 text-white '>{order._id}</td>
+              <td className='fs-4 text-white '><Button
+                variant="primary"
+                onClick={() => handleDeleteOrder(order._id)}
+              >
+                Remove
+              </Button></td>
+            </tr>
+          )}
+        </tbody>
+      </Table> */}
 
       {orders.map((order) => (
         <div className="shadow bg-white text-black px-5 my-3">
