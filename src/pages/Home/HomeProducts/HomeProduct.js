@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import AddToCartModal from "../AddToCartModal/AddToCartModal";
 import "./HomeProduct.css";
 
-const HomeProduct = ({ product, setModalShow }) => {
+const HomeProduct = ({ product }) => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div
       className="col-12 col-md-3 pb-5 d-flex justify-content-center "
@@ -68,6 +70,11 @@ const HomeProduct = ({ product, setModalShow }) => {
         </div>
       </Card>
       {/* </Link> */}
+      <AddToCartModal
+        product={product}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 };

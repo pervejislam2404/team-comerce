@@ -1,8 +1,14 @@
 import React from "react";
-import { Modal } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
+import { addToDb } from "../../../utilities/fakedb";
 
 const AddToCartModal = (props) => {
-  console.log(props);
+  const { name, img, price, description, _id } = props.product;
+
+  const handleAddToDb = (id) => {
+    addToDb(id);
+    props.onHide();
+  };
   return (
     <div>
       <Modal
@@ -11,20 +17,19 @@ const AddToCartModal = (props) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Row className="p-4">
+          <Col md={6}>
+            <img width="100%" src={img} alt="" />
+          </Col>
+          <Col md={6}>
+            <h2>{name}</h2>
+            <h4>$ {price}</h4>
+            <p>{description}</p>
+            <Button variant="primary" onClick={() => handleAddToDb(_id)}>
+              Add to Cart
+            </Button>
+          </Col>
+        </Row>
       </Modal>
     </div>
   );

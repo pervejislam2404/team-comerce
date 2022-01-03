@@ -16,6 +16,9 @@ import PrivateRoutes from "./pages/Shared/Private/PrivateRoutes";
 import Nopage from "./pages/Shared/Nopage/Nopage";
 import AdminAdd from "./pages/Dashboard/DashRoute/AddAdmin/AdminAdd";
 import SharedDash from "./pages/Shared/sharedDash/SharedDash";
+import UserCart from "./pages/Dashboard/DashRoute/UserCart/UserCart";
+import ContactInformation from "./pages/Payment/ContactInformation/ContactInformation";
+import Payment from "./pages/Payment/Payment/Payment";
 
 function App() {
   useEffect(() => {
@@ -31,15 +34,18 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/private" element={<PrivateRoutes />} /> */}
           <Route path="/allProducts" element={<AllProducts />} />
           <Route
             path="/singleProductDetail/:id"
             element={<SingleProductDetail />}
-          />
+            />
+          <Route path="/contactInformation/:id" element={<ContactInformation />} />
+          <Route path="/payment/:id" element={<Payment />} />
+
           <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
             <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
             <Route path="/dashboard/admin" element={<PrivateRoutes><AdminAdd /></PrivateRoutes>} />
+            <Route path="/dashboard/cart" element={<UserCart />}/>
           </Route>
           <Route path="*" element={<Nopage />} />
 
