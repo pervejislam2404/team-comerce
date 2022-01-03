@@ -11,6 +11,11 @@ const Alluser = () => {
 
     }, [])
 
+    useEffect(() => {
+        setDisplay(allUser);
+    }, [allUser]);
+
+
     const handlesearch = event => {
         // getting text value
         let text = event.target.value;
@@ -38,7 +43,28 @@ const Alluser = () => {
 
             </Container>
 
+            <Table responsive striped bordered hover variant="dark">
 
+                {/* table header */}
+                <thead>
+                    <tr className='text-center'>
+                        <th className='fs-3 text-white'>Sl</th>
+                        <th className='fs-3 text-white'>name</th>
+                        <th className='fs-3 text-white'>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* looping data */}
+
+                    {display.map(rider =>
+                        <tr key={rider._id} className='text-center'>
+                            <td className='fs-4 text-white '>{++count}</td>
+                            <td className='fs-4 text-white '>{rider.displayName}</td>
+                            <td className='fs-4 text-white '>{rider.email}</td>
+                        </tr>
+                    )}
+                </tbody>
+            </Table>
         </Container>
     );
 };
