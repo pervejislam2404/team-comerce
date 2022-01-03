@@ -6,10 +6,15 @@ import google from './google.png';
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
 import useFirebase from '../../../firebase/useFirebase';
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import {useSelector} from 'react-redux';
 
 const Login = () => {
   const {googleSign,signWithEmailPass} = useFirebase();
   const { register, handleSubmit } = useForm();
+
+  const errorMsg = useSelector(state=>state.statesCounter.errorMsg)
+console.log(errorMsg.split(':')[1])
+
 
   const navigate = useNavigate();
   const location = useLocation(); 
@@ -71,7 +76,11 @@ const Login = () => {
             </form>
 
             <div className="text-center">
-                 <h6><span>Already have an account? </span><Link className="text-decoration-none" to="/register">Sign in</Link></h6> 
+                 <h6><span>Already have an account? </span><Link className="text-decoration-none" to="/register">Register</Link></h6> 
+            </div>
+
+            <div className="text-center pt-3">
+                 <h6 className="text-danger">{errorMsg.split(':')[1]}</h6> 
             </div>
           </div>
 
