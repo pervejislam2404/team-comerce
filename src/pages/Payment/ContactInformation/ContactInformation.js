@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import CartDetails from "../../Shared/CartDetails/CartDetails";
@@ -39,42 +39,59 @@ const ContactInformation = () => {
       });
   };
   return (
-    <Container>
-      <Row>
-        <Col xs={12} md={7} className="border">
+    <Container className="my-5">
+      <Row className="d-flex justify-content-center">
+        <Col xs={12} md={6} className=" me-5 p-3 shadow">
           <div className="">
             <h1>Website Name</h1>
             <h4>Shipping address</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <input className="w-100 py-3 my-3" {...register("orderEmail")} />
+              <input
+                className="w-100 p-3 my-3"
+                {...register("orderEmail")}
+                placeholder="Email"
+                required
+              />
 
               <input
-                style={{ width: "49%" }}
-                className=" py-3 my-3 me-1"
+                className="w-100 p-3 my-3"
                 {...register("orderName")}
+                placeholder="Your Name"
+                required
               />
               <input
-                style={{ width: "49%" }}
-                className=" py-3 my-3 ms-2"
+                className="w-100 p-3 my-3"
                 {...register("orderPhone")}
+                placeholder="Your Phone"
+                type="number"
+                required
               />
 
               <input
-                className="w-100 py-3 my-3"
+                className="w-100 p-3 my-3"
                 {...register("orderAddress")}
+                placeholder="Address"
+                required
               />
 
               <input
-                style={{ width: "49%" }}
-                className=" py-3 my-3 me-1"
+                className="w-100 p-3 my-3"
                 {...register("orderCity")}
+                placeholder="City"
+                required
               />
               <input
-                style={{ width: "49%" }}
-                className=" py-3 my-3 ms-2"
+                className="w-100 p-3 my-3"
                 {...register("orderPostalCode")}
+                placeholder="Postal Code"
+                required
+                type="number"
               />
-              <input type="submit" />
+              <div className="d-flex justify-content-center pb-3">
+                <Button variant="primary" type="submit">
+                  Continue To Shipping
+                </Button>
+              </div>
             </form>
           </div>
         </Col>
