@@ -1,7 +1,7 @@
 import "./App.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import Home from "./pages/Home/Home/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -20,11 +20,12 @@ import UserCart from "./pages/Dashboard/DashRoute/UserCart/UserCart";
 import ContactInformation from "./pages/Payment/ContactInformation/ContactInformation";
 import Payment from "./pages/Payment/Payment/Payment";
 import UserOrders from "./pages/Dashboard/DashRoute/UserOrders/UserOrders";
+import ManageAllOrders from "./pages/Dashboard/DashRoute/ManageAllOrders/ManageAllOrders";
 
 function App() {
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
   return (
     <div>
       <Router>
@@ -39,22 +40,59 @@ function App() {
           <Route
             path="/singleProductDetail/:id"
             element={<SingleProductDetail />}
-            />
-          <Route path="/contactInformation/:id" element={<ContactInformation />} />
+          />
+          <Route
+            path="/contactInformation/:id"
+            element={<ContactInformation />}
+          />
           <Route path="/payment/:id" element={<Payment />} />
 
-          <Route path="/dashboard" element={<PrivateRoutes><Dashboard /></PrivateRoutes >} >
-            <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
-            <Route path="/dashboard/admin" element={<PrivateRoutes><AdminAdd /></PrivateRoutes>} />
-            <Route path="/dashboard/cart" element={<UserCart />}/>
-            <Route path="/dashboard/myOrder" element={<PrivateRoutes><UserOrders /></PrivateRoutes>} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoutes>
+                <Dashboard />
+              </PrivateRoutes>
+            }
+          >
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoutes>
+                  <SharedDash />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/dashboard/admin"
+              element={
+                <PrivateRoutes>
+                  <AdminAdd />
+                </PrivateRoutes>
+              }
+            />
+            <Route
+              path="/dashboard/manageAllOrders"
+              element={
+                <ManageAllOrders>
+                  <AdminAdd />
+                </ManageAllOrders>
+              }
+            />
+            <Route path="/dashboard/cart" element={<UserCart />} />
+            <Route
+              path="/dashboard/myOrder"
+              element={
+                <PrivateRoutes>
+                  <UserOrders />
+                </PrivateRoutes>
+              }
+            />
           </Route>
           <Route path="*" element={<Nopage />} />
-
         </Routes>
         <Footer />
       </Router>
-
     </div>
   );
 }
