@@ -1,17 +1,16 @@
 import React from "react";
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import useFirebase from '../../../firebase/useFirebase';
+import { Link } from "react-router-dom";
+import useFirebase from "../../../firebase/useFirebase";
 
 const Header = () => {
-    const user = useSelector(state=>state.statesCounter.user);
-    const {googleSingOut}= useFirebase();
-    const navigate = useNavigate();
+  const user = useSelector((state) => state.statesCounter.user);
+  const { googleSingOut } = useFirebase();
 
-    const handleSignOut= ()=>{
-        googleSingOut()
-    }
+  const handleSignOut = () => {
+    googleSingOut();
+  };
 
   return (
     <div>
@@ -42,12 +41,54 @@ const Header = () => {
               </NavDropdown> */}
             </Nav>
             <Nav>
-
-            
-              <Nav.Link>
+              <Nav.Link href="#">
+                <Link className="text-decoration-none text-light" to="/login">
+                  Login
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#">
                 <Link
                   className="text-decoration-none text-light"
-                  to="/allProducts"
+                  to="/register"
+                >
+                  Register
+                </Link>
+              </Nav.Link>
+              {/* <Nav.Link href="#">Register </Nav.Link> */}
+              {user?.email && (
+                <img
+                  height="40"
+                  width="40"
+                  className="rounded-pill"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              )}
+              {user?.email && <p className="text-light lh-0">{user.email}</p>}
+
+              <Nav.Link onClick={handleSignOut} className="bg-danger" href="#">
+                Log Out
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none text-secondary"
+                  to="/dashboard/cart"
+                >
+                  Cart
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none text-secondary"
+                  to="/dashboard"
+                >
+                  Dashboard
+                </Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link
+                  className="text-decoration-none text-secondary"
+                  to="/products"
                 >
                   products
                 </Link>

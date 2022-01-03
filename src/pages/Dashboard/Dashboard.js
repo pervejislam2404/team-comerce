@@ -26,13 +26,15 @@ const Dashboard = () => {
                         {/* user routes*/}
 
                         <NavLink to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Home</ListGroup.Item></NavLink>
+                        <NavLink to={`/dashboard/cart`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Cart</ListGroup.Item></NavLink>
+                        <NavLink to={`/dashboard/myOrder`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> My Orders</ListGroup.Item></NavLink>
 
                         {/* admin routes*/}
                         {admin && <div>
 
                             <NavLink to={`/dashboard/admin`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i className="fas fa-user-lock"></i> Add Admin</ListGroup.Item></NavLink>
                             <NavLink to={`/dashboard/allUser`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i className="fas fa-user-check"></i> All User </ListGroup.Item></NavLink>
-                            <NavLink to={`/dashboard/allOrder`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0'><i class="fas fa-cart-arrow-down"></i> Orders</ListGroup.Item></NavLink>
+                            <NavLink to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0'><i class="fas fa-cart-arrow-down"></i>Manage All Orders</ListGroup.Item></NavLink>
                         </div>}
                         <ListGroup.Item onClick={"logOut"} className='point '><i class="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
                     </ListGroup>

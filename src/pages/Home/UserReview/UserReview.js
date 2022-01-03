@@ -16,7 +16,7 @@ const UserReview = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 1,
       paritialVisibilityGutter: 30,
     },
   };
@@ -47,8 +47,8 @@ const UserReview = () => {
               <Rating
                 readonly
                 initialRating="4"
-                emptySymbol="bi bi-star"
-                fullSymbol="bi bi-star-fill"
+                emptySymbol="bi bi-star ratingEmpty"
+                fullSymbol="bi bi-star-fill ratingFull"
               />
             </p>
             <p>
@@ -73,8 +73,8 @@ const UserReview = () => {
               <Rating
                 readonly
                 initialRating="5"
-                emptySymbol="bi bi-star"
-                fullSymbol="bi bi-star-fill"
+                emptySymbol="bi bi-star ratingEmpty"
+                fullSymbol="bi bi-star-fill ratingFull"
               />
             </p>
             <p>

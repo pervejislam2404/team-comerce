@@ -44,11 +44,6 @@ const SingleProductDetail = () => {
   };
   return (
     <div>
-      <div className="background ">
-        <div className="container">
-          <h2 className="p-3">Single Product Detail</h2>
-        </div>
-      </div>
       <div className="container py-5">
         <div className="row">
           <div className="col-md-5">
@@ -90,8 +85,8 @@ const SingleProductDetail = () => {
             <Rating
               readonly
               initialRating={product.ratting}
-              emptySymbol="bi bi-star"
-              fullSymbol="bi bi-star-fill"
+              emptySymbol="bi bi-star ratingEmpty"
+              fullSymbol="bi bi-star-fill ratingFull"
             />
             <p>{product.description}</p>
             <div className="d-flex justify-content-between">
@@ -125,8 +120,8 @@ const SingleProductDetail = () => {
                 <Rating
                   readonly
                   initialRating={product.ratting}
-                  emptySymbol="bi bi-star"
-                  fullSymbol="bi bi-star-fill"
+                  emptySymbol="bi bi-star ratingEmpty"
+                  fullSymbol="bi bi-star-fill ratingFull"
                 />
               </p>
               <p>
@@ -174,8 +169,8 @@ const SingleProductDetail = () => {
                         <Rating
                           readonly
                           initialRating={pd.ratting}
-                          emptySymbol="bi bi-star"
-                          fullSymbol="bi bi-star-fill"
+                          emptySymbol="bi bi-star ratingEmpty"
+                          fullSymbol="bi bi-star-fill ratingFull"
                         />
                       </p>
                       <p>Price $ {product.price}</p>
