@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 const CartDetails = () => {
   const { id } = useParams();
   const [orders, setOrders] = useState({});
-  console.log(orders);
   const { order } = orders;
   useEffect(() => {
     fetch(`https://limitless-hollows-74908.herokuapp.com/order/${id}`)
