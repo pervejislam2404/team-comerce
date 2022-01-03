@@ -32,7 +32,7 @@ const HappyClient = () => {
         arrows={false}
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={1000}
+        autoPlaySpeed={2000}
       >
         <div className="pe-3">
           <img

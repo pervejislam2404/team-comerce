@@ -44,18 +44,13 @@ const SingleProductDetail = () => {
   };
   return (
     <div>
-      <div className="background ">
-        <div className="container">
-          <h2 className="p-3">Single Product Detail</h2>
-        </div>
-      </div>
       <div className="container py-5">
         <div className="row">
           <div className="col-md-5">
             <img
               className="w-100"
               height="400px"
-              src={img || product.img}
+              src={img || product.url}
               alt=""
             />
             <div className="py-5">
@@ -89,9 +84,9 @@ const SingleProductDetail = () => {
             <h4>{product.name}</h4>
             <Rating
               readonly
-              initialRating={product.ratting}
-              emptySymbol="bi bi-star"
-              fullSymbol="bi bi-star-fill"
+              initialRating={product.star}
+              emptySymbol="bi bi-star ratingEmpty"
+              fullSymbol="bi bi-star-fill ratingFull"
             />
             <p>{product.description}</p>
             <div className="d-flex justify-content-between">
@@ -109,36 +104,31 @@ const SingleProductDetail = () => {
         {/* review */}
         <div className="border p-4">
           <h4>Review</h4>
-          <div className="d-flex">
-            <div>
-              <img
-                width="100px"
-                height="100px"
-                className="me-4 border"
-                src={product.img}
-                alt=" "
-              />
-            </div>
-            <div>
-              <p>User Name</p>
-              <p>
-                <Rating
-                  readonly
-                  initialRating={product.ratting}
-                  emptySymbol="bi bi-star"
-                  fullSymbol="bi bi-star-fill"
+          {product?.comments?.map((comment) => (
+            <div className="d-flex">
+              {/* <div>
+                <img
+                  width="100px"
+                  height="100px"
+                  className="me-4 border"
+                  src={product.img}
+                  alt=" "
                 />
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                at dolores consectetur ipsam, eveniet impedit iste nulla modi
-                voluptate, aliquid corporis, maiores obcaecati voluptatem maxime
-                itaque! Asperiores molestiae pariatur nisi recusandae minus
-                saepe non vitae placeat cumque veritatis, repudiandae, deserunt,
-                illo officiis sed eligendi fugit in dolores ab eius neque!
-              </p>
+              </div> */}
+              <div>
+                <p>User Name</p>
+                <p>
+                  <Rating
+                    readonly
+                    initialRating={comment.rating}
+                    emptySymbol="bi bi-star ratingEmpty"
+                    fullSymbol="bi bi-star-fill ratingFull"
+                  />
+                </p>
+                <p>{comment.description}</p>
+              </div>
             </div>
-          </div>
+          ))}
           <hr />
         </div>
         {/* related products */}
@@ -174,8 +164,8 @@ const SingleProductDetail = () => {
                         <Rating
                           readonly
                           initialRating={pd.ratting}
-                          emptySymbol="bi bi-star"
-                          fullSymbol="bi bi-star-fill"
+                          emptySymbol="bi bi-star ratingEmpty"
+                          fullSymbol="bi bi-star-fill ratingFull"
                         />
                       </p>
                       <p>Price $ {product.price}</p>

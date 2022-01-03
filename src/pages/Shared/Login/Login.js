@@ -12,12 +12,11 @@ const Login = () => {
   const {googleSign,signWithEmailPass} = useFirebase();
   const { register, handleSubmit } = useForm();
 
-  const errorMsg = useSelector(state=>state.statesCounter.errorMsg)
-console.log(errorMsg.split(':')[1])
+  const errorMsg = useSelector(state=>state.statesCounter.googleSignErrorMsg);
 
 
+  const location = useLocation();
   const navigate = useNavigate();
-  const location = useLocation(); 
 
 
   const onSubmit = (data) => {
@@ -26,7 +25,7 @@ console.log(errorMsg.split(':')[1])
 
 
   const handleGoogleSign = ()=>{
-      googleSign();
+      googleSign(location,navigate);
   }
 
 
