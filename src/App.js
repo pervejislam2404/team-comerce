@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./pages/Shared/Header/Header";
 import Login from "./pages/Shared/Login/Login";
 import Register from "./pages/Shared/Register/Register";
-import AllProducts from "./pages/AllProducts/AllProducts/AllProducts";
 import SingleProductDetail from "./pages/AllProducts/SingleProductDetail/SingleProductDetail";
 import Footer from "./pages/Shared/Footer/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -21,6 +20,12 @@ import ContactInformation from "./pages/Payment/ContactInformation/ContactInform
 import Payment from "./pages/Payment/Payment/Payment";
 import UserOrders from "./pages/Dashboard/DashRoute/UserOrders/UserOrders";
 import ManageAllOrders from "./pages/Dashboard/DashRoute/ManageAllOrders/ManageAllOrders";
+import Products from "./pages/AllProducts/Products/Products";
+import AllCategories from "./pages/AllProducts/AllCategories/AllCategories";
+import Fashion from "./pages/AllProducts/AllCategories/Fashion";
+import Bags from "./pages/AllProducts/AllCategories/Bags";
+import Shoes from "./pages/AllProducts/AllCategories/Shoes";
+import Watches from "./pages/AllProducts/AllCategories/Watches";
 
 function App() {
   useEffect(() => {
@@ -36,7 +41,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/allProducts" element={<AllProducts />} />
+          {/* <Route path="/allProducts" element={<AllProducts />} /> */}
           <Route
             path="/singleProductDetail/:id"
             element={<SingleProductDetail />}
@@ -46,6 +51,14 @@ function App() {
             element={<ContactInformation />}
           />
           <Route path="/payment/:id" element={<Payment />} />
+
+          <Route path="/products" element={<Products />}>
+            <Route path="/products" element={<AllCategories />} />
+            <Route path="/products/fashion" element={<Fashion />} />
+            <Route path="/products/bags" element={<Bags />} />
+            <Route path="/products/shoes" element={<Shoes />} />
+            <Route path="/products/watches" element={<Watches />} />
+          </Route>
 
           <Route
             path="/dashboard"

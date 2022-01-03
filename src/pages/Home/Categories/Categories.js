@@ -28,7 +28,7 @@ const Categories = () => {
               <img
                 className="img-fluid mx-3"
                 width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/1059/premium/1059791.png?token=exp=1641117886~hmac=63b61c781123e84d82a3e30829621f94"
+                src="https://cdn-icons.flaticon.com/png/512/3275/premium/3275391.png?token=exp=1641211155~hmac=4baa10f51fb08df70e5afb5b05e60194"
                 alt=""
               />
             </div>
@@ -50,7 +50,7 @@ const Categories = () => {
               <img
                 className="img-fluid mx-3"
                 width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/2912/premium/2912536.png?token=exp=1641124197~hmac=d337d542a9bbd587452b13ecb1109e82"
+                src="https://cdn-icons.flaticon.com/png/512/2912/premium/2912536.png?token=exp=1641211114~hmac=1f579997183cff55e8af4fcfa91f57ef"
                 alt=""
               />
             </div>
@@ -72,7 +72,7 @@ const Categories = () => {
               <img
                 className="img-fluid mx-3"
                 width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/2987/premium/2987649.png?token=exp=1641118085~hmac=995d01a03e0a1795e0f8b3ae23f77d83"
+                src="https://cdn-icons.flaticon.com/png/512/2822/premium/2822419.png?token=exp=1641211077~hmac=6ccd5d4e1b11bd11551552f93bf7e3b4"
                 alt=""
               />
             </div>
@@ -94,7 +94,7 @@ const Categories = () => {
               <img
                 className="img-fluid mx-3"
                 width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/500/premium/500225.png?token=exp=1641118145~hmac=425e34b97df5d01cf13d1f69abeceb75"
+                src="https://cdn-icons.flaticon.com/png/512/500/premium/500225.png?token=exp=1641211016~hmac=9aac7723d31e05b794b3d17da6d1e4f6"
                 alt=""
               />
             </div>
@@ -131,7 +131,7 @@ const Categories = () => {
               </Button>
             </Link>
           </div>
-        </Col> 
+        </Col>
       </Row>
     </Container>
   );

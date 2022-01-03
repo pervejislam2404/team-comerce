@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
   const handleDeleteOrder = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "you will Cancel never back to many",
+      // text: "you will Cancel never back to many",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -44,7 +44,7 @@ const ManageAllOrders = () => {
   return (
     <div>
       <div className="d-flex justify-content-center pb-5">
-        <h2>My orders</h2>
+        <h2>Manage All Orders</h2>
       </div>
 
       {orders.map((order) => (

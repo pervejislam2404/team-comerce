@@ -88,7 +88,7 @@ const Header = () => {
               <Nav.Link>
                 <Link
                   className="text-decoration-none text-secondary"
-                  to="/allProducts"
+                  to="/products"
                 >
                   products
                 </Link>
