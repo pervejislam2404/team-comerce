@@ -50,7 +50,7 @@ const SingleProductDetail = () => {
             <img
               className="w-100"
               height="400px"
-              src={img || product.img}
+              src={img || product.url}
               alt=""
             />
             <div className="py-5">
