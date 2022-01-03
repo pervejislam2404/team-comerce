@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Categories.css";
 const Categories = () => {
+  const Navigate = useNavigate();
   const [url, setUrl] = useState("");
-  const handleImgUpdates = (url) => {
+  const [path, setPath] = useState("");
+  console.log(path);
+  const handleImgUpdates = (url, path) => {
     setUrl(url);
+    setPath(path);
   };
+
   return (
     <Container className="py-5">
       <div className=" d-flex flex-column justify-content-center align-items-center pb-5">
@@ -19,7 +24,8 @@ const Categories = () => {
             className="d-flex my-2 py-2 catbg"
             onClick={() =>
               handleImgUpdates(
-                "https://image.freepik.com/free-photo/pretty-young-stylish-sexy-woman-pink-luxury-dress-summer-fashion-trend-chic-style-sunglasses-blue-studio-background-shopping-holding-paper-bags-talking-mobile-phone-shopaholic_285396-2957.jpg"
+                "https://image.freepik.com/free-photo/pretty-young-stylish-sexy-woman-pink-luxury-dress-summer-fashion-trend-chic-style-sunglasses-blue-studio-background-shopping-holding-paper-bags-talking-mobile-phone-shopaholic_285396-2957.jpg",
+                "/products/fashion"
               )
             }
             style={{ cursor: "pointer" }}
@@ -41,7 +47,8 @@ const Categories = () => {
             className="d-flex my-2 py-2 catbg"
             onClick={() =>
               handleImgUpdates(
-                "https://image.freepik.com/free-psd/smartwatch-mockup_125540-1277.jpg"
+                "https://image.freepik.com/free-psd/smartwatch-mockup_125540-1277.jpg",
+                "/products/watches"
               )
             }
             style={{ cursor: "pointer" }}
@@ -63,7 +70,8 @@ const Categories = () => {
             className="d-flex my-2 py-2 catbg"
             onClick={() =>
               handleImgUpdates(
-                "https://image.freepik.com/free-photo/beautiful-elegance-luxury-fashion-green-handbag_74190-4885.jpg"
+                "https://image.freepik.com/free-photo/beautiful-elegance-luxury-fashion-green-handbag_74190-4885.jpg",
+                "/products/bags"
               )
             }
             style={{ cursor: "pointer" }}
@@ -85,7 +93,8 @@ const Categories = () => {
             className="d-flex my-2 py-2 catbg"
             onClick={() =>
               handleImgUpdates(
-                "https://image.freepik.com/free-vector/sport-training-running-tennis-shoes-advertising-realistic-composition-with-pair-trendy-comfortable-everyday-wear-sneakers-illustration_1284-31193.jpg"
+                "https://image.freepik.com/free-vector/sport-training-running-tennis-shoes-advertising-realistic-composition-with-pair-trendy-comfortable-everyday-wear-sneakers-illustration_1284-31193.jpg",
+                "/products/shoes"
               )
             }
             style={{ cursor: "pointer" }}
@@ -117,19 +126,18 @@ const Categories = () => {
             />
           </div>
           <div>
-            <Link to="/allProducts">
-              <Button
-                className="button"
-                variant="primary"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  padding: "8px 15px",
-                }}
-              >
-                View All
-              </Button>
-            </Link>
+            <Button
+              className="button"
+              variant="primary"
+              style={{
+                fontWeight: "bold",
+                fontSize: "18px",
+                padding: "8px 15px",
+              }}
+              onClick={() => Navigate(path)}
+            >
+              View All
+            </Button>
           </div>
         </Col>
       </Row>

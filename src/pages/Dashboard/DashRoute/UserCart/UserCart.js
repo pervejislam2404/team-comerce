@@ -12,7 +12,7 @@ const UserCart = () => {
   const user = useSelector((state) => state.statesCounter.user);
   // console.log(user);
   useEffect(() => {
-    fetch("https://limitless-hollows-74908.herokuapp.com/products")
+    fetch("https://limitless-hollows-74908.herokuapp.com/getAllProducts")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -86,17 +86,19 @@ const UserCart = () => {
                 {carts?.map((pd) => (
                   <tr>
                     <td>
-                      <img width="100" src={pd.img} alt="" />
+                      <img width="100" src={pd.url} alt="" />
                     </td>
                     <td>
-                      <h2 className="text-black">{pd.name}</h2>
+                      <p className="text-black">{pd.name}</p>
                     </td>
                     <td>
-                      <h4 className="text-black">$ {pd.price}</h4>
+                      <p className="text-black">$ {pd.price}</p>
                     </td>
-                    <td>{pd.quantity}</td>
                     <td>
-                      <h4 className="text-black">$ {pd.total}</h4>
+                      <p>{pd.quantity}</p>
+                    </td>
+                    <td>
+                      <p className="text-black">$ {pd.total}</p>
                     </td>
                     <td>
                       <Button

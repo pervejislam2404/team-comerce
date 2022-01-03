@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
-import Rating from 'react-rating';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
+import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
-const Shoes = () => {
+const Technology = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch(
-      "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/shoes"
+      "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/technology"
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -68,4 +68,4 @@ const Shoes = () => {
   );
 };
 
-export default Shoes;
+export default Technology;

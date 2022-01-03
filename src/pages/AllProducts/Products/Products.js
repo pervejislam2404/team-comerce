@@ -27,6 +27,12 @@ const Products = () => {
             <Link to="/products/shoes">
               <p>Shoes</p>
             </Link>
+            <Link to="/products/furniture">
+              <p>Furniture</p>
+            </Link>
+            <Link to="/products/technology">
+              <p>Technology</p>
+            </Link>
           </div>
           <div class="col-md-9">
             <Outlet />

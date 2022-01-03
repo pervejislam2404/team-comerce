@@ -26,6 +26,8 @@ import Fashion from "./pages/AllProducts/AllCategories/Fashion";
 import Bags from "./pages/AllProducts/AllCategories/Bags";
 import Shoes from "./pages/AllProducts/AllCategories/Shoes";
 import Watches from "./pages/AllProducts/AllCategories/Watches";
+import Technology from "./pages/AllProducts/AllCategories/Technology";
+import Furniture from "./pages/AllProducts/AllCategories/Furniture";
 
 function App() {
   useEffect(() => {
@@ -58,6 +60,8 @@ function App() {
             <Route path="/products/bags" element={<Bags />} />
             <Route path="/products/shoes" element={<Shoes />} />
             <Route path="/products/watches" element={<Watches />} />
+            <Route path="/products/technology" element={<Technology />} />
+            <Route path="/products/furniture" element={<Furniture />} />
           </Route>
 
           <Route

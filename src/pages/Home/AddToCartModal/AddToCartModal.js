@@ -3,7 +3,7 @@ import { Button, Col, Modal, Row } from "react-bootstrap";
 import { addToDb } from "../../../utilities/fakedb";
 
 const AddToCartModal = (props) => {
-  const { name, img, price, description, _id } = props.product;
+  const { name, url, price, description, _id } = props.product;
 
   const handleAddToDb = (id) => {
     addToDb(id);
@@ -19,7 +19,7 @@ const AddToCartModal = (props) => {
       >
         <Row className="p-4">
           <Col md={6}>
-            <img width="100%" src={img} alt="" />
+            <img width="100%" src={url} alt="" />
           </Col>
           <Col md={6}>
             <h2>{name}</h2>

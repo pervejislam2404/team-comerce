@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const AllCategories = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-hollows-74908.herokuapp.com/products")
+    fetch("https://limitless-hollows-74908.herokuapp.com/getAllProducts")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -28,7 +28,7 @@ const AllCategories = () => {
                   border: "1px solid lightGray",
                 }}
                 variant="top"
-                src={product.img}
+                src={product.url}
               />
               <div className="shadow-sm p-2 ">
                 <div className="d-flex justify-content-between ">
@@ -37,7 +37,7 @@ const AllCategories = () => {
                     <small className="p-0 m-0 text-secondary ">
                       <Rating
                         readonly
-                        initialRating={product.ratting}
+                        initialRating={product.star}
                         emptySymbol="bi bi-star"
                         fullSymbol="bi bi-star-fill"
                       />

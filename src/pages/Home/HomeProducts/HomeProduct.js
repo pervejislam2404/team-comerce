@@ -21,7 +21,7 @@ const HomeProduct = ({ product }) => {
         <Card.Img
           style={{ height: "20rem", border: "1px solid lightGray" }}
           variant="top"
-          src={product.img}
+          src={product.url}
         />
         <div className="shadow-sm p-2 ">
           <div className="d-flex justify-content-between ">
