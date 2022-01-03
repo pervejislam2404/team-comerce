@@ -11,6 +11,15 @@ const Alluser = () => {
 
     }, [])
 
+    const handlesearch = event => {
+        // getting text value
+        let text = event.target.value;
+        let result = allUser.filter(user => user.displayName.toLowerCase().includes(text.toLowerCase()))
+        // setting to display
+        setDisplay(result);
+        // testing
+        // console.log(result)
+    }
 
     return (
         <Container data-aos="flip-right" fluid className='pt-3   text-center allorderbg'>
@@ -19,7 +28,12 @@ const Alluser = () => {
             <Container>
                 <Row>
 
-
+                    <Col>
+                        <div className="searchDiv h-25 py-2 mb-5 ">
+                            <h2 className='fs-4 fw-bold text-light mt-3'>SearchByName</h2>
+                            <input className='search w-50' onChange={handlesearch} placeholder='Search by name' type="text" name="search" id="search" />
+                        </div>
+                    </Col>
                 </Row>
 
             </Container>
