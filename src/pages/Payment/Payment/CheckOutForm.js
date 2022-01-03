@@ -14,7 +14,7 @@ const CheckOutForm = ({ orders, id }) => {
   const [processing, serProcessing] = useState(false);
   const [clientSecret, serClientSecret] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:4000/create-payment-intent`, {
+    fetch(`https://limitless-hollows-74908.herokuapp.com/create-payment-intent`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(orders),
@@ -79,7 +79,7 @@ const CheckOutForm = ({ orders, id }) => {
         laset4: paymentMethod.card.last4,
       };
 
-      fetch(`http://localhost:4000/payment/${id}`, {
+      fetch(`https://limitless-hollows-74908.herokuapp.com/payment/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payment),

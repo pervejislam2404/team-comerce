@@ -19,6 +19,7 @@ import SharedDash from "./pages/Shared/sharedDash/SharedDash";
 import UserCart from "./pages/Dashboard/DashRoute/UserCart/UserCart";
 import ContactInformation from "./pages/Payment/ContactInformation/ContactInformation";
 import Payment from "./pages/Payment/Payment/Payment";
+import UserOrders from "./pages/Dashboard/DashRoute/UserOrders/UserOrders";
 
 function App() {
   useEffect(() => {
@@ -46,6 +47,7 @@ function App() {
             <Route path="/dashboard" element={<PrivateRoutes><SharedDash /></PrivateRoutes>} />
             <Route path="/dashboard/admin" element={<PrivateRoutes><AdminAdd /></PrivateRoutes>} />
             <Route path="/dashboard/cart" element={<UserCart />}/>
+            <Route path="/dashboard/myOrder" element={<PrivateRoutes><UserOrders /></PrivateRoutes>} />
           </Route>
           <Route path="*" element={<Nopage />} />
 

@@ -26,6 +26,8 @@ const Dashboard = () => {
                         {/* user routes*/}
 
                         <NavLink to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Home</ListGroup.Item></NavLink>
+                        <NavLink to={`/dashboard/cart`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Cart</ListGroup.Item></NavLink>
+                        <NavLink to={`/dashboard/myOrder`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> My Orders</ListGroup.Item></NavLink>
 
                         {/* admin routes*/}
                         {admin && <div>
