@@ -101,15 +101,12 @@ const SingleProductDetail = () => {
               </b>
               <p>In stock {product.stock}</p>
             </div>
-            <div className="d-flex justify-content-between">
-              <p>color</p>
-              <Button
-                variant="primary"
-                onClick={() => handleAddToDb(product._id)}
-              >
-                Add to cart
-              </Button>
-            </div>
+            <Button
+              variant="primary"
+              onClick={() => handleAddToDb(product._id)}
+            >
+              Add to cart
+            </Button>
           </div>
         </div>
         {/* review */}

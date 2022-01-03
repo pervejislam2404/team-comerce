@@ -5,9 +5,7 @@ import HomeProduct from "./HomeProduct";
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/shoes"
-    )
+    fetch("https://limitless-hollows-74908.herokuapp.com/getTopProducts")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
