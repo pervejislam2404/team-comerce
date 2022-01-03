@@ -23,15 +23,17 @@ const Furniture = () => {
             className="text-decoration-none text-secondary"
             to={`/singleProductDetail/${product._id}`}
           >
-            <Card style={{ width: "18rem" }}>
-              <Card.Img
-                style={{
-                  height: "18rem",
-                  border: "1px solid lightGray",
-                }}
-                variant="top"
-                src={product.url}
-              />
+            <Card style={{ width: "18rem" }} className='cb2 c'>
+              <div className="image-box">
+                <Card.Img className='im1'
+                  style={{
+                    height: "18rem",
+                    border: "1px solid lightGray",
+                  }}
+                  variant="top"
+                  src={product.url}
+                />
+              </div>
               <div className="shadow-sm p-2 ">
                 <div className="d-flex justify-content-between ">
                   <div className="">
