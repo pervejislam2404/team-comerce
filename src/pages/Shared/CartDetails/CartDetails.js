@@ -29,7 +29,7 @@ const CartDetails = () => {
           style={{ display: "flex", justifyContent: "space-between", py: 1 }}
         >
           <div>
-            <img width="100px" height="100px" src={order.img} alt="" />
+            <img width="100px" height="100px" src={order.url} alt="" />
             <Badge bg="secondary">{order.quantity}</Badge>
           </div>
           <div>

@@ -50,7 +50,7 @@ const SingleProductDetail = () => {
             <img
               className="w-100"
               height="400px"
-              src={img || product.img}
+              src={img || product.url}
               alt=""
             />
             <div className="py-5">
@@ -84,7 +84,7 @@ const SingleProductDetail = () => {
             <h4>{product.name}</h4>
             <Rating
               readonly
-              initialRating={product.ratting}
+              initialRating={product.star}
               emptySymbol="bi bi-star ratingEmpty"
               fullSymbol="bi bi-star-fill ratingFull"
             />
@@ -104,36 +104,31 @@ const SingleProductDetail = () => {
         {/* review */}
         <div className="border p-4">
           <h4>Review</h4>
-          <div className="d-flex">
-            <div>
-              <img
-                width="100px"
-                height="100px"
-                className="me-4 border"
-                src={product.img}
-                alt=" "
-              />
-            </div>
-            <div>
-              <p>User Name</p>
-              <p>
-                <Rating
-                  readonly
-                  initialRating={product.ratting}
-                  emptySymbol="bi bi-star ratingEmpty"
-                  fullSymbol="bi bi-star-fill ratingFull"
+          {product?.comments?.map((comment) => (
+            <div className="d-flex">
+              {/* <div>
+                <img
+                  width="100px"
+                  height="100px"
+                  className="me-4 border"
+                  src={product.img}
+                  alt=" "
                 />
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-                at dolores consectetur ipsam, eveniet impedit iste nulla modi
-                voluptate, aliquid corporis, maiores obcaecati voluptatem maxime
-                itaque! Asperiores molestiae pariatur nisi recusandae minus
-                saepe non vitae placeat cumque veritatis, repudiandae, deserunt,
-                illo officiis sed eligendi fugit in dolores ab eius neque!
-              </p>
+              </div> */}
+              <div>
+                <p>User Name</p>
+                <p>
+                  <Rating
+                    readonly
+                    initialRating={comment.rating}
+                    emptySymbol="bi bi-star ratingEmpty"
+                    fullSymbol="bi bi-star-fill ratingFull"
+                  />
+                </p>
+                <p>{comment.description}</p>
+              </div>
             </div>
-          </div>
+          ))}
           <hr />
         </div>
         {/* related products */}

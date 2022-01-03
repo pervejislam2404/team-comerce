@@ -10,7 +10,6 @@ export const counterSlice = createSlice({
     user: {},
     errorMsg: "",
     isLoading: true,
-    modalShow: false,
   },
   reducers: {
     setErrorMsg: (state, { payload }) => {
@@ -22,14 +21,10 @@ export const counterSlice = createSlice({
     setIsLoading: (state, { payload }) => {
       state.isLoading = payload;
     },
-    setModalShow: (state, { payload }) => {
-      state.modalShow = payload;
-    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setErrorMsg, setUser, setIsLoading, setModalShow } =
-  counterSlice.actions;
+export const { setErrorMsg, setUser, setIsLoading } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -62,7 +62,7 @@ const UserOrders = () => {
           {order.order.map((od) => (
             <div className="d-flex justify-content-between align-items-center pb-3">
               <div className="">
-                <img width="100" src={od.img} alt="" />
+                <img width="100" src={od.url} alt="" />
               </div>
               <div className="">
                 <h4>{od.name}</h4>
