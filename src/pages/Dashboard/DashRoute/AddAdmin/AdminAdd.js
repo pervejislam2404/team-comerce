@@ -17,7 +17,7 @@ const AdminAdd = () => {
     const handleAddAdmin = e => {
         e.preventDefault()
         console.log(email)
-        axios.put(`/admin/${email}`).then(res => res.data.modifiedCount ? handleShow() : '')
+        axios.put(`https://limitless-hollows-74908.herokuapp.com/admin/${email}`).then(res => res.data ? handleShow() : '')
 
     }
     return (

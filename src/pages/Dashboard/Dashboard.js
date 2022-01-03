@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import useFirebase from '../../firebase/useFirebase';
 import './dash.css'
 const Dashboard = () => {
+    // const admin = useSelector((state) => state.statesCounter.admin);
+
+    const handleSignOut = () => {
+        googleSingOut();
+    };
+    const { googleSingOut } = useFirebase();
+
     // for now
     const [admin, setadmin] = useState(true)
     // hamburger control
@@ -36,7 +45,7 @@ const Dashboard = () => {
                             <NavLink to={`/dashboard/allUser`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i className="fas fa-user-check"></i> All User </ListGroup.Item></NavLink>
                             <NavLink to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0'><i class="fas fa-cart-arrow-down"></i>Manage All Orders</ListGroup.Item></NavLink>
                         </div>}
-                        <ListGroup.Item onClick={"logOut"} className='point '><i class="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
+                        <ListGroup.Item onClick={handleSignOut} className='point '><i class="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
                     </ListGroup>
                 </Container>
             </Row >
