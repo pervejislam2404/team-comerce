@@ -50,7 +50,7 @@ const ManageAllOrders = () => {
       {orders.map((order) => (
         <div className="shadow bg-white text-black px-5 my-3">
           <div className="d-flex justify-content-between py-3">
-            <h4>Order id: {order._id}</h4>
+            <h5>Order id: {order._id}</h5>
             <Button
               variant="primary"
               onClick={() => handleDeleteOrder(order._id)}
@@ -62,19 +62,19 @@ const ManageAllOrders = () => {
           {order.order.map((od) => (
             <div className="d-flex justify-content-between align-items-center pb-3">
               <div className="">
-                <img width="100" src={od.img} alt="" />
+                <img width="100" src={od.url} alt="" />
               </div>
               <div className="">
-                <h4>{od.name}</h4>
+                <p>{od.name}</p>
               </div>
               <div className="">
-                <h4>Qty: {od.quantity}</h4>
+                <p>Qty: {od.quantity}</p>
               </div>
               <div className="">
-                <h4> {order.status} </h4>
+                <p> {order.status} </p>
               </div>
               <div className="">
-                <h4> {order.payment && "Paid"} </h4>
+                <p> {order.payment && "Paid"} </p>
               </div>
             </div>
           ))}

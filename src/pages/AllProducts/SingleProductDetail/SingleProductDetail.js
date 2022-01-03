@@ -8,6 +8,7 @@ import { addToDb } from "../../../utilities/fakedb";
 import "./SingleProductDetail.css";
 
 const SingleProductDetail = () => {
+  const Swal = require("sweetalert2");
   let { id } = useParams();
   const [img, setImg] = useState("");
   const [product, setProduct] = useState({});
@@ -47,6 +48,11 @@ const SingleProductDetail = () => {
   };
   const handleAddToDb = (id) => {
     addToDb(id);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Add to cart successful",
+    });
   };
   return (
     <div>
