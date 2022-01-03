@@ -19,59 +19,16 @@ const Header = () => {
           <Navbar.Brand href="/home">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="ms-auto">
               <Nav.Link href="#features">
-                <Link className="text-decoration-none text-secondary" to="/">
+                <Link className="text-decoration-none text-light" to="/">
                   Home
                 </Link>
               </Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
-            </Nav>
-            <Nav>
-              <Nav.Link href="#">
-                <Link className="text-decoration-none text-light" to="/login">
-                  Login
-                </Link>
-              </Nav.Link>
-              <Nav.Link href="#">
-                <Link
-                  className="text-decoration-none text-light"
-                  to="/register"
-                >
-                  Register
-                </Link>
-              </Nav.Link>
-              {/* <Nav.Link href="#">Register </Nav.Link> */}
-              {user?.email && (
-                <img
-                  height="40"
-                  width="40"
-                  className="rounded-pill"
-                  src={user?.photoURL}
-                  alt=""
-                />
-              )}
-              {user?.email && <p className="text-light lh-0">{user.email}</p>}
-
-              <Nav.Link onClick={handleSignOut} className="bg-danger" href="#">
-                Log Out
-              </Nav.Link>
+              
               <Nav.Link>
                 <Link
-                  className="text-decoration-none text-secondary"
+                  className="text-decoration-none text-light"
                   to="/dashboard/cart"
                 >
                   Cart
@@ -79,7 +36,7 @@ const Header = () => {
               </Nav.Link>
               <Nav.Link>
                 <Link
-                  className="text-decoration-none text-secondary"
+                  className="text-decoration-none text-light"
                   to="/dashboard"
                 >
                   Dashboard
@@ -87,12 +44,18 @@ const Header = () => {
               </Nav.Link>
               <Nav.Link>
                 <Link
-                  className="text-decoration-none text-secondary"
+                  className="text-decoration-none text-light"
                   to="/products"
                 >
                   products
                 </Link>
               </Nav.Link>
+             
+             {!user?.email &&  <Nav.Link href="#"><Link className="text-decoration-none text-light" to="/register">Register</Link></Nav.Link>}
+             {user?.email&& <img height="40" width="40" className="rounded-pill mx-3" src={user?.photoURL ||"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sWItJHAxNH9OOPWQ9urcp2EaSKTu-Cw4UA&usqp=CAU"} alt="" /> }
+             {user?.email ? <Nav.Link onClick={handleSignOut} className="bg-danger text-light rounded ms-2" href="#">Log Out</Nav.Link>:
+              ''}
+              {!user && <Link className="bg-danger text-light rounded ms-2 px-4 pt-1" to="/login">Login</Link>} 
             </Nav>
           </Navbar.Collapse>
         </Container>
