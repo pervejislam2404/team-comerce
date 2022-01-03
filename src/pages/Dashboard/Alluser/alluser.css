@@ -1,0 +1,10 @@
+.searchDiv{
+    text-align: center;
+    height: 80px;
+    margin-top: -25px;
+}
+.search{
+    height: 45px;
+    line-height: 30px;
+    border-radius: 18px ;
+}
