@@ -41,7 +41,7 @@ const SharedDash = () => {
                 <Col xs={12} md={6}  >
                     <div className="p-3 bg-success shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 className="fs-2">%25</h3>
+                            <h3 className="fs-2">25%</h3>
                             <p className="fs-5">Increase</p>
                         </div>
                         <i className="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>

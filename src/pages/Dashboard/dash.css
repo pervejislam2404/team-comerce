@@ -25,6 +25,8 @@ background-attachment: fixed;
     margin-left: -11px;
      overflow: hidden;
     /* position: relative; */
+    overflow-x: hidden;
+
   }
   
   .nav-item{
@@ -119,6 +121,9 @@ z-index: 1;
 
   /* display based on screen */
   @media (max-width: 768px) {
+  .prim-bg{
+    min-width: 99vw;
+  }
     .hamburger{
       display: flex;
     }

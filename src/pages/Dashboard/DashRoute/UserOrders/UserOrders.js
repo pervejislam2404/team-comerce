@@ -47,20 +47,20 @@ const UserOrders = () => {
       <div className="d-flex justify-content-center pb-5">
         <h2>My orders</h2>
       </div>
-      {/* <Table responsive striped bordered hover variant="dark"> */}
+      <Table responsive striped bordered hover variant="dark">
 
-      {/* table header */}
-      {/* <thead>
-        <tr className='text-center'>
-          <th className='fs-3 text-white'>Sl</th>
-          <th className='fs-3 text-white'>Order_ID</th>
-          <th className='fs-3 text-white'>Cancel Order</th>
-        </tr>
-      </thead>
-      <tbody> */}
-      {/* looping data */}
+        {/* table header */}
+        <thead>
+          <tr className='text-center'>
+            <th className='fs-3 text-white'>Sl</th>
+            <th className='fs-3 text-white'>Order_ID</th>
+            <th className='fs-3 text-white'>Cancel Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* looping data */}
 
-      {/* {orders.map(order =>
+          {orders.map(order =>
             <tr key={order._id} className='text-center'>
               <td className='fs-4 text-white '>{++count}</td>
               <td className='fs-4 text-white '>{order._id}</td>
@@ -73,9 +73,9 @@ const UserOrders = () => {
             </tr>
           )}
         </tbody>
-      </Table> */}
+      </Table>
 
-      {orders.map((order) => (
+      {/* {orders.map((order) => (
         <div className="shadow bg-white text-black px-5 my-3">
           <div className="d-flex justify-content-between py-3">
             <h4>Order id: {order._id}</h4>
@@ -107,7 +107,7 @@ const UserOrders = () => {
             </div>
           ))}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
