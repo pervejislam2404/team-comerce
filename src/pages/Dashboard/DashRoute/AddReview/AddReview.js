@@ -31,6 +31,17 @@ const AddReview = () => {
                 <button className='adminAdd btncolr w-25 mx-auto mt-4 fs-3 '>Add </button>
 
             </form>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Review Added</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Thank you!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={handleClose}>
+                        Cheers!!
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 };
