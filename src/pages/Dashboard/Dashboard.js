@@ -5,7 +5,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import useFirebase from '../../firebase/useFirebase';
 import './dash.css'
 const Dashboard = () => {
-    // const admin = useSelector((state) => state.statesCounter.admin);
+    const admin = useSelector((state) => state.statesCounter.admin);
 
     const handleSignOut = () => {
         googleSingOut();
@@ -13,7 +13,7 @@ const Dashboard = () => {
     const { googleSingOut } = useFirebase();
 
     // for now
-    const [admin, setadmin] = useState(true)
+    // const [admin, setadmin] = useState(true)
     // hamburger control
     const togle = () => {
         let el = document.getElementById("wrapper");
@@ -33,7 +33,7 @@ const Dashboard = () => {
                     </div>
                     <ListGroup variant="flush" className=' text-start nav-item'>
                         {/* user routes*/}
-                        {admin && <div>
+                        {!admin && <div>
                             <NavLink className={({ isActive }) => isActive ? "active" : ""} to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-home text-info"></i> Home</ListGroup.Item></NavLink>
                             <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/cart`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-plus text-info"></i> Cart</ListGroup.Item></NavLink>
                             <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/myOrder`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-folder-plus text-info"></i> My Orders</ListGroup.Item></NavLink>
