@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Modal, Table } from "react-bootstrap";
+import { Button, Container, Modal, Spinner, Table } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
 import ShowModal from '../ShowModal/ShowModal';
 
@@ -46,6 +46,8 @@ const StockUpdate = () => {
 
     return (
         <Container fluid>
+            <h2 className='fs-3 fw-bold text-center'><i class="fas fa-shopping-bag"></i> Product Information</h2>
+            <hr className='mx-auto w-50 mb-5' />
             {products.length ?
                 <Table responsive striped bordered hover variant="dark">
                     {/* table header */}
@@ -81,7 +83,9 @@ const StockUpdate = () => {
                             </tr>
                         )}
                     </tbody>
-                </Table> : ''
+                </Table> : <div className='text-center'>
+                    <Spinner animation="border" variant="danger" />
+                </div>
             }
 
             <ShowModal show={show} handleClose={handleClose} product={item} onSubmit={onSubmit} ></ShowModal>
