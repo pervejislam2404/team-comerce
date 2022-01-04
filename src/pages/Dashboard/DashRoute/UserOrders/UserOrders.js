@@ -54,6 +54,7 @@ const UserOrders = () => {
           <tr className='text-center'>
             <th className='fs-3 text-white'>Sl</th>
             <th className='fs-3 text-white'>Name</th>
+            <th className='fs-3 text-white'>Product Name</th>
             <th className='fs-3 text-white'>Product Image</th>
             <th className='fs-3 text-white'>Cancel Order</th>
           </tr>
@@ -64,7 +65,10 @@ const UserOrders = () => {
           {orders.map(order =>
             <tr key={order._id} className='text-center'>
               <td className='fs-4 text-white '>{++count}</td>
-              <td className='fs-4 text-white '>{order.name}</td>
+              <td className='fs-4 text-white '>{order.user}</td>
+
+              <td className='fs-4 text-white '>{order.user}</td>
+              <td className='fs-4 text-white '>{order.user}</td>
               <td className='fs-4 text-white '><Button
                 variant="primary"
                 onClick={() => handleDeleteOrder(order._id)}
