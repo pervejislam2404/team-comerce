@@ -23,7 +23,7 @@ const Fashion = () => {
       )}
       {products?.map((product) => (
         <div
-          class="col-12 col-md-4 pb-5 d-flex justify-content-center"
+          className="col-12 col-md-4 pb-5 d-flex justify-content-center"
           key={product._id}
         >
           <Link

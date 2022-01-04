@@ -42,7 +42,7 @@ const SingleProductDetail = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 1,
       paritialVisibilityGutter: 30,
     },
   };
@@ -52,6 +52,10 @@ const SingleProductDetail = () => {
       position: "center",
       icon: "success",
       title: "Add to cart successful",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
     });
   };
   return (

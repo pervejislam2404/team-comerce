@@ -6,7 +6,6 @@ import HomeProduct from "./HomeProduct";
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
 
-
   useEffect(() => {
     fetch(
       "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/top"
@@ -15,7 +14,7 @@ const HomeProducts = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="container py-5">
+    <div className="container pb-5">
       <div className="d-flex justify-content-center py-5">
         <div className="">
           <h2>Our Top Collection</h2>
@@ -23,7 +22,7 @@ const HomeProducts = () => {
         </div>
       </div>
 
-      <div class="row">
+      <div className="row">
         {products.length ? (
           ""
         ) : (
@@ -32,7 +31,7 @@ const HomeProducts = () => {
           </div>
         )}
         {products?.map((product) => (
-          <HomeProduct product={product} />
+          <HomeProduct product={product} key={product._id} />
         ))}
       </div>
     </div>

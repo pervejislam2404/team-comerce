@@ -48,9 +48,9 @@ const GenderProduct = () => {
         </h5>
       </div>
 
-      <div class="row">
+      <div className="row">
         {display?.map((product) => (
-          <HomeProduct product={product} />
+          <HomeProduct product={product} key={product._id} />
         ))}
       </div>
     </div>

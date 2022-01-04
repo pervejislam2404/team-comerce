@@ -43,10 +43,10 @@ const Dashboard = () => {
 
                             <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/admin`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-user-lock text-info"></i> Add Admin</ListGroup.Item></NavLink>
                             <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/allUser`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-user-check text-info"></i> All User </ListGroup.Item></NavLink>
-                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i class="fas fa-cart-arrow-down text-info"></i> Manage All Orders</ListGroup.Item></NavLink>
-                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/stockUpdate`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i class="fas fa-cart-arrow-down text-info"></i> Stock Update</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-arrow-down text-info"></i> Manage All Orders</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/stockUpdate`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-arrow-down text-info"></i> Stock Update</ListGroup.Item></NavLink>
                         </div>}
-                        <ListGroup.Item active onClick={handleSignOut} className='point '><i class="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
+                        <ListGroup.Item active onClick={handleSignOut} className='point '><i className="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
                     </ListGroup>
                 </Container>
             </Row >

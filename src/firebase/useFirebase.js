@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import firebaseInitialize from './firebase.init';
-import { setErrorMsg, setGoogleSignErrorMsg, setIdToken, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
+import { setAdmin, setErrorMsg, setGoogleSignErrorMsg, setIdToken, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
 import swal from "sweetalert";
 
 firebaseInitialize();
@@ -26,6 +26,7 @@ firebaseInitialize();
             dispatch(setErrorMsg(''));
               const newUser = { email, displayName: name };
               dispatch(setUser(newUser))
+              saveUser(email, name, 'POST');
 
               swal({
                 title: "Sign up success!",
@@ -33,7 +34,6 @@ firebaseInitialize();
               });
              
 
-              saveUser(email, name, 'POST');
               updateProfile(auth.currentUser, {
                   displayName: name
               }).then(() => {
@@ -55,8 +55,8 @@ firebaseInitialize();
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    dispatch(setUser(user));
     saveUser(user?.email, user?.displayName, 'PUT')
+    dispatch(setUser(user));
 
     const destination = location?.state?.from || '/';
     navigate(destination);
@@ -81,7 +81,7 @@ const googleSign = (location,navigate)=>{
       const user = result.user;
       dispatch(setIsLoading(false));
       dispatch(setUser(user));
-      saveUser(user.email, user.displayName,'PUT')
+      saveUser(user?.email, user?.displayName,'PUT')
       const destination = location?.state?.from || '/';
       navigate(destination);
       // ...
@@ -112,7 +112,6 @@ useEffect(() => {
           dispatch(setUser(user));
             getIdToken(user)
                 .then(idToken => {
-                  console.log(idToken);
                   dispatch(setIdToken(idToken));
                 })
         } else {
@@ -122,15 +121,15 @@ useEffect(() => {
         dispatch(setIsLoading(false));
     });
     return () => unsubscribed;
-}, [auth])
+}, [dispatch,auth])
 
 
-// useEffect(() => {
-//   axios(`https://guarded-ocean-40685.herokuapp.com/checkAdmin/${user?.email}`)
-//   .then(res=>{
-// //   dispatch(setAdmin(res.data))
-//   })
-// },[user])
+useEffect(() => {
+  axios(`https://limitless-hollows-74908.herokuapp.com/checkAdmin/${user?.email}`)
+  .then(res=>{
+  dispatch(setAdmin(res.data))
+  })
+},[user])
 
 
 // saving-user-to-database

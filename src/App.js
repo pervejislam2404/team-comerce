@@ -28,6 +28,7 @@ import Shoes from "./pages/AllProducts/AllCategories/Shoes";
 import Watches from "./pages/AllProducts/AllCategories/Watches";
 import Technology from "./pages/AllProducts/AllCategories/Technology";
 import Furniture from "./pages/AllProducts/AllCategories/Furniture";
+import DetailChart from './pages/DetailChart/DetailChart';
 import Alluser from "./pages/Dashboard/Alluser/Alluser";
 import StockUpdate from "./pages/Dashboard/DashRoute/Stockupdate/StockUpdate";
 
@@ -36,12 +37,15 @@ function App() {
     AOS.init();
   }, []);
   return (
-    <div>
+    <div className="mt-5">
       <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+
+ <Route path="/chart" element={<DetailChart />} />
+
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -105,6 +109,7 @@ function App() {
                 </ManageAllOrders>
               }
             />
+
             <Route
               path="/dashboard/stockUpdate"
               element={
@@ -112,6 +117,9 @@ function App() {
               }
             />
             <Route path="/dashboard/cart" element={<UserCart />} />
+           
+
+
             <Route
               path="/dashboard/myOrder"
               element={

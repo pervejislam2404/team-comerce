@@ -30,11 +30,14 @@ export const counterSlice = createSlice({
         },
         setIdToken: (state, { payload }) => {
             state.idToken = payload;
-        }
+        },
+        setAdmin: (state, { payload }) => {
+            state.admin = payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setErrorMsg, setUser, setIsLoading, setGoogleSignErrorMsg, setIdToken } = counterSlice.actions
+export const { setErrorMsg, setUser, setIsLoading, setGoogleSignErrorMsg, setIdToken, setAdmin } = counterSlice.actions
 
 export default counterSlice.reducer
