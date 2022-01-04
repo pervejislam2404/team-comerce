@@ -61,13 +61,13 @@ const UserOrders = () => {
         <tbody>
           {/* looping data */}
 
-          {orders?.order?.map(item =>
-            <tr key={item._id} className='text-center'>
+          {orders.map(order =>
+            <tr key={order._id} className='text-center'>
               <td className='fs-4 text-white '>{++count}</td>
-              <td className='fs-4 text-white '>{item.name}</td>
+              <td className='fs-4 text-white '>{order.name}</td>
               <td className='fs-4 text-white '><Button
                 variant="primary"
-                onClick={() => handleDeleteOrder(item._id)}
+                onClick={() => handleDeleteOrder(order._id)}
               >
                 Remove
               </Button></td>
