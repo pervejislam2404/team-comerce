@@ -64,7 +64,17 @@ background-attachment: fixed;
   .active{
     background-color: #037FFF;
   }
+  .reservation{
+    display: block;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid black;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin: 20px auto;
 
+}
 
   /* side drawer */
   #sidebar-wrapper {

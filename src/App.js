@@ -29,6 +29,7 @@ import Watches from "./pages/AllProducts/AllCategories/Watches";
 import Technology from "./pages/AllProducts/AllCategories/Technology";
 import Furniture from "./pages/AllProducts/AllCategories/Furniture";
 import Alluser from "./pages/Dashboard/Alluser/Alluser";
+import StockUpdate from "./pages/Dashboard/DashRoute/Stockupdate/StockUpdate";
 
 function App() {
   useEffect(() => {
@@ -102,6 +103,12 @@ function App() {
               element={
                 <ManageAllOrders>
                 </ManageAllOrders>
+              }
+            />
+            <Route
+              path="/dashboard/stockUpdate"
+              element={
+                <StockUpdate />
               }
             />
             <Route path="/dashboard/cart" element={<UserCart />} />
