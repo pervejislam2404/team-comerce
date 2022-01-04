@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
+import useFirebase from '../../firebase/useFirebase';
 import './dash.css'
 const Dashboard = () => {
+    // const admin = useSelector((state) => state.statesCounter.admin);
+
+    const handleSignOut = () => {
+        googleSingOut();
+    };
+    const { googleSingOut } = useFirebase();
+
     // for now
     const [admin, setadmin] = useState(true)
     // hamburger control
@@ -18,25 +27,26 @@ const Dashboard = () => {
     return (
         <Container fluid className=' prim-bg d-flex' id="wrapper">
             <Row id="sidebar-wrapper">
-                <Container className='text-center bg-white  sw'>
-                    <div className="sidebar-heading text-dark text-center py-4 primary-text fs-4 fw-bold text-uppercase">
-                        <i className="fas fa-user-secret"></i>{admin ? "admin" : "username"}
+                <Container className='text-center bg-white'>
+                    <div className="sidebar-heading text-info text-center py-4 primary-text fs-4 fw-bold text-uppercase">
+                        <i className="fas fa-user-secret text-secondary"></i> {admin ? "admin" : "username"}
                     </div>
-                    <ListGroup variant="flush" className='me-3'>
+                    <ListGroup variant="flush" className=' text-start nav-item'>
                         {/* user routes*/}
-
-                        <NavLink to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Home</ListGroup.Item></NavLink>
-                        <NavLink to={`/dashboard/cart`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> Cart</ListGroup.Item></NavLink>
-                        <NavLink to={`/dashboard/myOrder`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i class="fas fa-home"></i> My Orders</ListGroup.Item></NavLink>
-
+                        {admin && <div>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ""} to={`/dashboard`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-home text-info"></i> Home</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/cart`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-plus text-info"></i> Cart</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/myOrder`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-folder-plus text-info"></i> My Orders</ListGroup.Item></NavLink>
+                        </div>}
                         {/* admin routes*/}
                         {admin && <div>
 
-                            <NavLink to={`/dashboard/admin`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i className="fas fa-user-lock"></i> Add Admin</ListGroup.Item></NavLink>
-                            <NavLink to={`/dashboard/allUser`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0'><i className="fas fa-user-check"></i> All User </ListGroup.Item></NavLink>
-                            <NavLink to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0'><i class="fas fa-cart-arrow-down"></i>Manage All Orders</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/admin`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-user-lock text-info"></i> Add Admin</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/allUser`}><ListGroup.Item className=' border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-user-check text-info"></i> All User </ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/manageAllOrders`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-arrow-down text-info"></i> Manage All Orders</ListGroup.Item></NavLink>
+                            <NavLink className={({ isActive }) => isActive ? "active" : ''} to={`/dashboard/stockUpdate`}><ListGroup.Item className='border-end-0 border-top-0 border-start-0 text-info'><i className="fas fa-cart-arrow-down text-info"></i> Stock Update</ListGroup.Item></NavLink>
                         </div>}
-                        <ListGroup.Item onClick={"logOut"} className='point '><i class="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
+                        <ListGroup.Item active onClick={handleSignOut} className='point '><i className="fas fa-sign-out-alt"></i> LogOut</ListGroup.Item>
                     </ListGroup>
                 </Container>
             </Row >

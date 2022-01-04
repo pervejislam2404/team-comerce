@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const UserOrders = () => {
+  let count = 0;
   const Swal = require("sweetalert2");
   const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
@@ -48,37 +49,45 @@ const UserOrders = () => {
       </div>
 
       {orders.map((order) => (
-        <div className="shadow bg-white text-black px-5 my-3">
-          <div className="d-flex justify-content-between py-3">
-            <h4>Order id: {order._id}</h4>
-            <Button
-              variant="primary"
-              onClick={() => handleDeleteOrder(order._id)}
-            >
-              Cencle order
-            </Button>
-          </div>
+        <Table responsive striped bordered hover variant="dark">
+          {/* table header */}
+          <thead>
+            <tr className="text-center">
+              <th className="fs-3 text-white">Sl</th>
+              <th className="fs-3 text-white">Name</th>
+              <th className="fs-3 text-white">Product Name</th>
+              <th className="fs-3 text-white">Product Image</th>
+              <th className="fs-3 text-white">
+                <Button
+                  variant="primary"
+                  onClick={() => handleDeleteOrder(order._id)}
+                >
+                  Remove Order
+                </Button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* looping data */}
 
-          {order.order.map((od) => (
-            <div className="d-flex justify-content-between align-items-center pb-3">
-              <div className="">
-                <img width="100" src={od.img} alt="" />
-              </div>
-              <div className="">
-                <h4>{od.name}</h4>
-              </div>
-              <div className="">
-                <h4>Qty: {od.quantity}</h4>
-              </div>
-              <div className="">
-                <h4> {order.status} </h4>
-              </div>
-              <div className="">
-                <h4> {order.payment && "Paid"} </h4>
-              </div>
-            </div>
-          ))}
-        </div>
+            {order?.order?.map((od) => (
+              <tr key={order._id} className="text-center">
+                <td className="fs-4 text-white ">{++count}</td>
+                <td className="fs-4 text-white ">{order.user}</td>
+
+                <td className="fs-4 text-white ">{od.name}</td>
+                <td className="fs-4 text-white ">
+                  <img
+                    style={{ width: "60px", height: "60px" }}
+                    src={od.url}
+                    alt=""
+                  />
+                </td>
+                <td className="fs-4 text-white ">{order.payment && "paid"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       ))}
     </div>
   );

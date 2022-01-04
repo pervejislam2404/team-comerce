@@ -5,36 +5,50 @@ const Products = () => {
   return (
     <div className="container py-5">
       <div>
-        <h4 className="pb-5">Filter Products</h4>
+        <h2 className="pb-5">Filter Your Products</h2>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 border">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3 border">
             <h4 className="pt-2">Category</h4>
             <hr />
             <Link to="/products">
-              <p>All Categories</p>
+              <div className="catbg p-3 my-3 text-black">
+                <h5>All Categories</h5>
+              </div>
             </Link>
             <Link to="/products/fashion">
-              <p>Fashion</p>
+              <div className="catbg p-3 my-3 text-black">
+                <h5>Fashion</h5>
+              </div>
             </Link>
             <Link to="/products/watches">
-              <p>Watches</p>
+              <div className="catbg p-3 my-3 text-black">
+                <h5>Watches</h5>
+              </div>
             </Link>
             <Link to="/products/bags">
-              <p>Bags</p>
+              <div className="catbg p-3 my-3 text-black text-align-left">
+                <h5>Bags</h5>
+              </div>
             </Link>
             <Link to="/products/shoes">
-              <p>Shoes</p>
+              <div className="catbg p-3 my-3 text-black">
+                <h5>Shoes</h5>
+              </div>
             </Link>
             <Link to="/products/furniture">
-              <p>Furniture</p>
+              <div className="catbg p-3 my-3 text-black">
+                <h5>Furniture</h5>
+              </div>
             </Link>
             <Link to="/products/technology">
-              <p>Technology</p>
+              <div className="catbg p-3 my-3  text-black text-align-left">
+                <h5>Technology</h5>
+              </div>
             </Link>
           </div>
-          <div class="col-md-9">
+          <div className="col-md-9">
             <Outlet />
           </div>
         </div>

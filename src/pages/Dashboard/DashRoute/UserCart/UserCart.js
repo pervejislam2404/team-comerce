@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const UserCart = () => {
+  const Swal = require("sweetalert2");
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [carts, setCarts] = useState([]);
@@ -44,8 +45,23 @@ const UserCart = () => {
   }
 
   const handleRemove = (id) => {
-    removeFromDb(id);
-    window.location.reload();
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          removeFromDb(id);
+        }
+      })
+      .finally(() => {
+        window.location.reload();
+      });
   };
 
   const handleOrder = () => {
@@ -67,10 +83,10 @@ const UserCart = () => {
       });
   };
   return (
-    <div className="bg-white">
+    <div className="bg-secondary p-3">
       <Row>
         <Col xs={12} md={8}>
-          <Table striped bordered hover>
+          <Table responsive striped bordered hover variant="dark">
             <thead>
               <tr>
                 <th>Image</th>
@@ -84,21 +100,21 @@ const UserCart = () => {
             {carts.length && (
               <tbody>
                 {carts?.map((pd) => (
-                  <tr>
+                  <tr key={pd._id}>
                     <td>
                       <img width="100" src={pd.url} alt="" />
                     </td>
                     <td>
-                      <p className="text-black">{pd.name}</p>
+                      <p className="text-white">{pd.name}</p>
                     </td>
                     <td>
-                      <p className="text-black">$ {pd.price}</p>
+                      <p className="text-white">$ {pd.price}</p>
                     </td>
                     <td>
                       <p>{pd.quantity}</p>
                     </td>
                     <td>
-                      <p className="text-black">$ {pd.total}</p>
+                      <p className="text-white">$ {pd.total}</p>
                     </td>
                     <td>
                       <Button
@@ -117,22 +133,28 @@ const UserCart = () => {
         <Col xs={12} md={4}>
           <h4 className="text-black ms-4 py-2">Cart Totals</h4>
           <Row className="text-black d-flex justify-content-center">
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               Subtotal
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               $ {totalShoppingCost}
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               Total
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               $ {totalShoppingCost}
             </Col>
           </Row>
-          <Button variant="primary" className="ms-4 mt-3" onClick={handleOrder}>
-            Proceed to checkout
-          </Button>
+          {carts.length && (
+            <Button
+              variant="primary"
+              className="ms-4 mt-3 text-white"
+              onClick={handleOrder}
+            >
+              Proceed to checkout
+            </Button>
+          )}
         </Col>
       </Row>
     </div>

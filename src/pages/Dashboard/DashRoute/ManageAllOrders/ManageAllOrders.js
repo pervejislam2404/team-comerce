@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const ManageAllOrders = () => {
+  let count = 0;
   const Swal = require("sweetalert2");
   const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
@@ -42,15 +43,44 @@ const ManageAllOrders = () => {
     });
   };
   return (
-    <div>
+    <Container fluid>
       <div className="d-flex justify-content-center pb-5">
         <h2>Manage All Orders</h2>
       </div>
+      {orders.length ?
+        <Table responsive striped bordered hover variant="dark">
+          {/* table header */}
+          <thead>
+            <tr className='text-center'>
+              <th className='fs-3 text-white'>Sl</th>
+              <th className='fs-3 text-white'>UserName</th>
+              <th className='fs-3 text-white'>Order_ID</th>
+              <th className='fs-3 text-white'>Cancel Order</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* looping data */}
 
-      {orders.map((order) => (
+            {orders.map(order =>
+              <tr key={order._id} className='text-center'>
+                <td className='fs-4 text-white '>{++count}</td>
+                <td className='fs-4 text-white '>{order.user}</td>
+                <td className='fs-4 text-white '>{order._id.slice(20, 25)}</td>
+                <td className='fs-4 text-white '><Button
+                  variant="primary"
+                  onClick={() => handleDeleteOrder(order._id)}
+                >
+                  Remove
+                </Button></td>
+              </tr>
+            )}
+          </tbody>
+        </Table> : ''
+      }
+      {/* {orders.map((order) => (
         <div className="shadow bg-white text-black px-5 my-3">
           <div className="d-flex justify-content-between py-3">
-            <h4>Order id: {order._id}</h4>
+            <h5>Order id: {order._id}</h5>
             <Button
               variant="primary"
               onClick={() => handleDeleteOrder(order._id)}
@@ -62,25 +92,25 @@ const ManageAllOrders = () => {
           {order.order.map((od) => (
             <div className="d-flex justify-content-between align-items-center pb-3">
               <div className="">
-                <img width="100" src={od.img} alt="" />
+                <img width="100" src={od.url} alt="" />
               </div>
               <div className="">
-                <h4>{od.name}</h4>
+                <p>{od.name}</p>
               </div>
               <div className="">
-                <h4>Qty: {od.quantity}</h4>
+                <p>Qty: {od.quantity}</p>
               </div>
               <div className="">
-                <h4> {order.status} </h4>
+                <p> {order.status} </p>
               </div>
               <div className="">
-                <h4> {order.payment && "Paid"} </h4>
+                <p> {order.payment && "Paid"} </p>
               </div>
             </div>
           ))}
         </div>
-      ))}
-    </div>
+      ))} */}
+    </Container>
   );
 };
 

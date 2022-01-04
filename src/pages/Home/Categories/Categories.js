@@ -32,9 +32,9 @@ const Categories = () => {
           >
             <div>
               <img
-                className="img-fluid mx-3"
-                width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/3275/premium/3275391.png?token=exp=1641211155~hmac=4baa10f51fb08df70e5afb5b05e60194"
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/0ZyJbHQ/3275391.png"
                 alt=""
               />
             </div>
@@ -55,9 +55,9 @@ const Categories = () => {
           >
             <div>
               <img
-                className="img-fluid mx-3"
-                width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/2912/premium/2912536.png?token=exp=1641211114~hmac=1f579997183cff55e8af4fcfa91f57ef"
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/2dtS35G/3109881.png"
                 alt=""
               />
             </div>
@@ -78,9 +78,9 @@ const Categories = () => {
           >
             <div>
               <img
-                className="img-fluid mx-3"
-                width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/2822/premium/2822419.png?token=exp=1641211077~hmac=6ccd5d4e1b11bd11551552f93bf7e3b4"
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/0QNdsXg/2822419.png"
                 alt=""
               />
             </div>
@@ -101,10 +101,10 @@ const Categories = () => {
           >
             <div>
               <img
-                className="img-fluid mx-3"
-                width="80px"
-                src="https://cdn-icons.flaticon.com/png/512/500/premium/500225.png?token=exp=1641211016~hmac=9aac7723d31e05b794b3d17da6d1e4f6"
-                alt=""
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/S6W0jWk/2872620.png"
+                alt="2872620"
               />
             </div>
             <div>
@@ -112,11 +112,57 @@ const Categories = () => {
               <p>420 products</p>
             </div>
           </div>
+          <div
+            className="d-flex my-2 py-2 catbg"
+            onClick={() =>
+              handleImgUpdates(
+                "https://image.freepik.com/free-psd/cyber-monday-sale-composition-mock-up_23-2148659811.jpg",
+                "/products/technology"
+              )
+            }
+            style={{ cursor: "pointer" }}
+          >
+            <div>
+              <img
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/MkxKwPn/186225.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <h4>Technology</h4>
+              <p>420 products</p>
+            </div>
+          </div>
+          <div
+            className="d-flex my-2 py-2 catbg"
+            onClick={() =>
+              handleImgUpdates(
+                "https://image.freepik.com/free-photo/white-wall-living-room-have-sofa-decoration-3d-rendering_41470-3282.jpg",
+                "/products/furniture"
+              )
+            }
+            style={{ cursor: "pointer" }}
+          >
+            <div>
+              <img
+                className="img-fluid mx-4"
+                width="70px"
+                src="https://i.ibb.co/VxLn293/2603741.png"
+                alt=""
+              />
+            </div>
+            <div>
+              <h4>Furniture</h4>
+              <p>420 products</p>
+            </div>
+          </div>
         </Col>
         <Col xs={12} md={9} className="img">
           <div height="550" className="" id="img">
             <img
-              height="423px "
+              height="600px "
               width="100%"
               src={
                 url ||
@@ -134,7 +180,7 @@ const Categories = () => {
                 fontSize: "18px",
                 padding: "8px 15px",
               }}
-              onClick={() => Navigate(path)}
+              onClick={() => Navigate(path || "/products/fashion")}
             >
               View All
             </Button>

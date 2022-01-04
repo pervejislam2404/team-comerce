@@ -1,7 +1,7 @@
 import "./App.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Home from "./pages/Home/Home/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -29,13 +29,15 @@ import Watches from "./pages/AllProducts/AllCategories/Watches";
 import Technology from "./pages/AllProducts/AllCategories/Technology";
 import Furniture from "./pages/AllProducts/AllCategories/Furniture";
 import DetailChart from './pages/DetailChart/DetailChart';
+import Alluser from "./pages/Dashboard/Alluser/Alluser";
+import StockUpdate from "./pages/Dashboard/DashRoute/Stockupdate/StockUpdate";
 
 function App() {
   useEffect(() => {
     AOS.init();
   }, []);
   return (
-    <div>
+    <div className="mt-5">
       <Router>
         <Header />
         <Routes>
@@ -93,14 +95,27 @@ function App() {
               }
             />
             <Route
+              path="/dashboard/allUser"
+              element={
+                <PrivateRoutes>
+                  <Alluser />
+                </PrivateRoutes>
+              }
+            />
+            <Route
               path="/dashboard/manageAllOrders"
               element={
                 <ManageAllOrders>
-                  <AdminAdd />
                 </ManageAllOrders>
               }
             />
 
+            <Route
+              path="/dashboard/stockUpdate"
+              element={
+                <StockUpdate />
+              }
+            />
             <Route path="/dashboard/cart" element={<UserCart />} />
            
 
