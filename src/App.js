@@ -36,7 +36,7 @@ function App() {
     AOS.init();
   }, []);
   return (
-    <div>
+    <div className="mt-5">
       <Router>
         <Header />
         <Routes>

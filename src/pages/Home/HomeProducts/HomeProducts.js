@@ -15,7 +15,7 @@ const HomeProducts = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="container py-5">
+    <div className="container pb-5">
       <div className="d-flex justify-content-center py-5">
         <div className="">
           <h2>Our Top Collection</h2>
