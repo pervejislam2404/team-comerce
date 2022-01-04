@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const UserOrders = () => {
   let count = 0;
   const Swal = require("sweetalert2");
+  const navigate = useNavigate();
   const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
@@ -57,6 +59,7 @@ const UserOrders = () => {
               <th className="fs-3 text-white">Name</th>
               <th className="fs-3 text-white">Product Name</th>
               <th className="fs-3 text-white">Product Image</th>
+              <th className="fs-3 text-white">Status</th>
               <th className="fs-3 text-white">
                 <Button
                   variant="primary"
@@ -83,7 +86,21 @@ const UserOrders = () => {
                     alt=""
                   />
                 </td>
-                <td className="fs-4 text-white ">{order.payment && "paid"}</td>
+                <td className="fs-4 text-white ">{order.status}</td>
+                <td className="fs-4 text-white ">
+                  {order.payment ? (
+                    "Paid"
+                  ) : (
+                    <Button
+                      variant="primary"
+                      onClick={() =>
+                        navigate(`/contactInformation/${order._id}`)
+                      }
+                    >
+                      Pay
+                    </Button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
