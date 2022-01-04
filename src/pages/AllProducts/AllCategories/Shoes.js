@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,13 @@ const Shoes = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="row">
+    <div className="row">  {products.length ? (
+      ""
+    ) : (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" />
+      </div>
+    )}
       {products?.map((product) => (
         <div
           class="col-12 col-md-4 pb-5 d-flex justify-content-center"

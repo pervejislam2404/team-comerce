@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 import HomeProduct from "./HomeProduct";
 
@@ -19,6 +20,13 @@ const HomeProducts = () => {
       </div>
 
       <div class="row">
+      {products.length ? (
+        ""
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="border" />
+        </div>
+      )}
         {products?.map((product) => (
           <HomeProduct product={product} />
         ))}
