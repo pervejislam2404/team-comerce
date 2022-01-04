@@ -86,21 +86,21 @@ const UserCart = () => {
     <div className="bg-secondary p-3">
       <Row>
         <Col xs={12} md={8}>
-          <Table responsive striped bordered hover variant="dark" >
+          <Table responsive striped bordered hover variant="dark">
             <thead>
               <tr>
-                <th >Image</th>
-                <th >Product</th>
-                <th >Price</th>
-                <th >Quantity</th>
-                <th >Total</th>
-                <th >Remove</th>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
               </tr>
             </thead>
             {carts.length && (
               <tbody>
                 {carts?.map((pd) => (
-                  <tr>
+                  <tr key={pd._id}>
                     <td>
                       <img width="100" src={pd.url} alt="" />
                     </td>

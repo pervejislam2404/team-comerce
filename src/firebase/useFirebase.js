@@ -112,7 +112,6 @@ useEffect(() => {
           dispatch(setUser(user));
             getIdToken(user)
                 .then(idToken => {
-                  console.log(idToken);
                   dispatch(setIdToken(idToken));
                 })
         } else {
@@ -122,7 +121,7 @@ useEffect(() => {
         dispatch(setIsLoading(false));
     });
     return () => unsubscribed;
-}, [auth])
+}, [dispatch,auth])
 
 
 // useEffect(() => {

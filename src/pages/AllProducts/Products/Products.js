@@ -7,9 +7,9 @@ const Products = () => {
       <div>
         <h2 className="pb-5">Filter Your Products</h2>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 border">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3 border">
             <h4 className="pt-2">Category</h4>
             <hr />
             <Link to="/products">
@@ -48,7 +48,7 @@ const Products = () => {
               </div>
             </Link>
           </div>
-          <div class="col-md-9">
+          <div className="col-md-9">
             <Outlet />
           </div>
         </div>
