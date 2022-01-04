@@ -10,8 +10,6 @@ const StockUpdate = () => {
     const { reset } = useForm();
     const [show, setShow] = useState(false);
     const [item, setItem] = useState({});
-    const [flag, setFlag] = useState(false);
-    // const [stock, setStock] = useState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -25,11 +23,20 @@ const StockUpdate = () => {
         fetch("https://limitless-hollows-74908.herokuapp.com/getAllProducts")
             .then((res) => res.json())
             .then((data) => setProducts(data));
-    });
+    }, [products]);
 
+    const handleremove = (id) => {
+        axios.delete(`https://limitless-hollows-74908.herokuapp.com/deleteProduct/${id}`).then(res => {
+            if (res.data) {
+                const collect = products.filter(product => product._id !== id)
+                setProducts(collect);
+            }
+        })
+    }
+
+    // stock update
     const onSubmit = data => {
         reset('');
-        setFlag(true)
 
         console.log(data)
         axios.put('https://limitless-hollows-74908.herokuapp.com/updateStock', data).then(res => res.data ? setItem({}) : '')
@@ -48,6 +55,7 @@ const StockUpdate = () => {
                             <th className='fs-3 text-white'>Product Name</th>
                             <th className='fs-3 text-white'>stock</th>
                             <th className='fs-3 text-white'>update</th>
+                            <th className='fs-3 text-white'>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,11 +66,17 @@ const StockUpdate = () => {
                                 <td className='fs-4 text-white '>{++count}</td>
                                 <td className='fs-4 text-white '>{product.name}</td>
                                 <td className='fs-4 text-white '>{product.stock}</td>
-                                <td className='fs-4 text-white '><Button
+                                <td className='fs-5 text-white '><Button
                                     variant="primary"
                                     onClick={() => handleData(product)}
                                 >
                                     Update Stock
+                                </Button></td>
+                                <td className='fs-4 text-white '><Button
+                                    variant="primary"
+                                    onClick={() => handleremove(product._id)}
+                                >
+                                    Delete
                                 </Button></td>
                             </tr>
                         )}
