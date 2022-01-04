@@ -79,7 +79,7 @@ const SingleProductDetail = () => {
                       <div key={img}>
                         <img
                           style={{ cursor: "pointer !important" }}
-                          className="w-75"
+                          // className="w-75"
                           height="70px"
                           src={img}
                           alt=""
@@ -100,13 +100,21 @@ const SingleProductDetail = () => {
               emptySymbol="bi bi-star ratingEmpty"
               fullSymbol="bi bi-star-fill ratingFull"
             />
-            <p>{product.description}</p>
+
             <div className="d-flex justify-content-between">
               <b>
                 Price $ <b>{product.price}</b>
               </b>
               <p>In stock {product.stock}</p>
             </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Deleniti, quia sequi ducimus saepe quam at. Quaerat eos quibusdam
+              modi similique. Sed ullam soluta quis rerum optio officia
+              reprehenderit eum placeat! Facilis fuga illum consequuntur
+              laboriosam omnis perspiciatis minus, officiis libero, aut non
+              quia? Fuga voluptatibus odit distinctio, molestiae minus et?
+            </p>
             <Button
               variant="primary"
               onClick={() => handleAddToDb(product._id)}
@@ -173,7 +181,7 @@ const SingleProductDetail = () => {
                       />
                     </div>
                     <div className="">
-                      <h4>{pd.name}</h4>
+                      <h6>{pd.name}</h6>
                       <p>
                         <Rating
                           readonly

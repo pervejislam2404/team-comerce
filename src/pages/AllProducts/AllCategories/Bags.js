@@ -39,8 +39,8 @@ const Bags = () => {
                     <Rating
                       readonly
                       initialRating={product.star}
-                      emptySymbol="bi bi-star"
-                      fullSymbol="bi bi-star-fill"
+                      emptySymbol="bi bi-star ratingEmpty"
+                      fullSymbol="bi bi-star-fill ratingFull"
                     />
                   </small>
                   <p className="p-0 m-0 text-secondary">$ {product.price}</p>
