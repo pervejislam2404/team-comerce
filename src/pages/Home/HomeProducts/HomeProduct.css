@@ -1,3 +1,8 @@
+.cardHover {
+  transition: all 0.5s ease;
+}
 .cardHover:hover {
-  box-shadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+  box-shadow: -1px 0px 25px 4px rgba(0,0,0,0.29);
+  -webkit-box-shadow: -1px 0px 25px 4px rgba(0,0,0,0.29);
+  -moz-box-shadow: -1px 0px 25px 4px rgba(0,0,0,0.29);
 }

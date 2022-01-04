@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./HomeProduct.css";
 
 const HomeProduct = ({ product }) => {
- 
   return (
     <div
       className="col-12 col-md-3 pb-5 d-flex justify-content-center "
@@ -16,15 +15,19 @@ const HomeProduct = ({ product }) => {
         className="text-decoration-none text-secondary"
         to={`/singleProductDetail/${product._id}`}
       >
-        <Card style={{ width: "18rem" }} className="cardHover">
+        <Card style={{ minHeight: "28rem" }} className="cardHover">
           <Card.Img
-            style={{ height: "20rem", border: "1px solid lightGray" }}
+            style={{
+              height: "20rem",
+              border: "1px solid lightGray",
+              padding: "10px",
+            }}
             variant="top"
             src={product.url}
           />
-          <div className="shadow-sm p-2 ">
+          <div className=" p-3 ">
             <div className="">
-              <h4 className="text-secondary">{product.name}</h4>
+              <h5 className="text-secondary">{product.name}</h5>
               <small className="p-0 m-0 text-secondary ">
                 <Rating
                   readonly
