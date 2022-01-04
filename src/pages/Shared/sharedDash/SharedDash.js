@@ -1,10 +1,13 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './shared.css'
+import DetailChart from '../../DetailChart/DetailChart';
 const SharedDash = () => {
     return (
         <Container data-aos="zoom-in-down" className="shared mt-1">
             <h2 className='my-5 text-center'>Welcome To Dashbaord</h2>
+
+            <DetailChart/>
 
             <Row className="g-3 ">
                 <Col xs={12} md={6} >
