@@ -47,72 +47,48 @@ const UserOrders = () => {
       <div className="d-flex justify-content-center pb-5">
         <h2>My orders</h2>
       </div>
-      <Table responsive striped bordered hover variant="dark">
 
-        {/* table header */}
-        <thead>
-          <tr className='text-center'>
-            <th className='fs-3 text-white'>Sl</th>
-            <th className='fs-3 text-white'>Name</th>
-            <th className='fs-3 text-white'>Product Name</th>
-            <th className='fs-3 text-white'>Product Image</th>
-            <th className='fs-3 text-white'>Cancel Order</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* looping data */}
-
-          {orders.map(order =>
-            <tr key={order._id} className='text-center'>
-              <td className='fs-4 text-white '>{++count}</td>
-              <td className='fs-4 text-white '>{order.user}</td>
-
-              <td className='fs-4 text-white '>{order.user}</td>
-              <td className='fs-4 text-white '>{order.user}</td>
-              <td className='fs-4 text-white '><Button
-                variant="primary"
-                onClick={() => handleDeleteOrder(order._id)}
-              >
-                Remove
-              </Button></td>
+      {orders.map((order) => (
+        <Table responsive striped bordered hover variant="dark">
+          {/* table header */}
+          <thead>
+            <tr className="text-center">
+              <th className="fs-3 text-white">Sl</th>
+              <th className="fs-3 text-white">Name</th>
+              <th className="fs-3 text-white">Product Name</th>
+              <th className="fs-3 text-white">Product Image</th>
+              <th className="fs-3 text-white">
+                <Button
+                  variant="primary"
+                  onClick={() => handleDeleteOrder(order._id)}
+                >
+                  Remove Order
+                </Button>
+              </th>
             </tr>
-          )}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {/* looping data */}
 
-      {/* {orders.map((order) => (
-        <div className="shadow bg-white text-black px-5 my-3">
-          <div className="d-flex justify-content-between py-3">
-            <h4>Order id: {order._id}</h4>
-            <Button
-              variant="primary"
-              onClick={() => handleDeleteOrder(order._id)}
-            >
-              Cencle order
-            </Button>
-          </div>
+            {order?.order?.map((od) => (
+              <tr key={order._id} className="text-center">
+                <td className="fs-4 text-white ">{++count}</td>
+                <td className="fs-4 text-white ">{order.user}</td>
 
-          {order.order.map((od) => (
-            <div className="d-flex justify-content-between align-items-center pb-3">
-              <div className="">
-                <img width="100" src={od.url} alt="" />
-              </div>
-              <div className="">
-                <h4>{od.name}</h4>
-              </div>
-              <div className="">
-                <h4>Qty: {od.quantity}</h4>
-              </div>
-              <div className="">
-                <h4> {order.status} </h4>
-              </div>
-              <div className="">
-                <h4> {order.payment && "Paid"} </h4>
-              </div>
-            </div>
-          ))}
-        </div>
-      ))} */}
+                <td className="fs-4 text-white ">{od.name}</td>
+                <td className="fs-4 text-white ">
+                  <img
+                    style={{ width: "60px", height: "60px" }}
+                    src={od.url}
+                    alt=""
+                  />
+                </td>
+                <td className="fs-4 text-white ">{order.payment && "paid"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      ))}
     </div>
   );
 };
