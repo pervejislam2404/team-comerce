@@ -14,11 +14,11 @@ const Fashion = () => {
   }, []);
   return (
     <div className="row">
-        {products.length ? (
+      {products.length ? (
         ""
       ) : (
         <div className="d-flex justify-content-center">
-          <Spinner animation="border" />
+          <Spinner animation="grow" variant="info" />
         </div>
       )}
       {products?.map((product) => (

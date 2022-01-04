@@ -13,13 +13,15 @@ const Shoes = () => {
       .then((data) => setProducts(data));
   }, []);
   return (
-    <div className="row">  {products.length ? (
-      ""
-    ) : (
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" />
-      </div>
-    )}
+    <div className="row">
+      {" "}
+      {products.length ? (
+        ""
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" variant="info" />
+        </div>
+      )}
       {products?.map((product) => (
         <div
           class="col-12 col-md-4 pb-5 d-flex justify-content-center"

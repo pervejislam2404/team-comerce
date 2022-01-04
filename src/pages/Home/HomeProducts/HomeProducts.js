@@ -6,7 +6,9 @@ import HomeProduct from "./HomeProduct";
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://limitless-hollows-74908.herokuapp.com/getProductByCategory/top")
+    fetch(
+      "https://limitless-hollows-74908.herokuapp.com/getProductByCategory/top"
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -20,13 +22,13 @@ const HomeProducts = () => {
       </div>
 
       <div class="row">
-      {products.length ? (
-        ""
-      ) : (
-        <div className="d-flex justify-content-center">
-          <Spinner animation="border" />
-        </div>
-      )}
+        {products.length ? (
+          ""
+        ) : (
+          <div className="d-flex justify-content-center">
+            <Spinner animation="grow" variant="info" />
+          </div>
+        )}
         {products?.map((product) => (
           <HomeProduct product={product} />
         ))}
