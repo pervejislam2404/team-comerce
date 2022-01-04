@@ -15,7 +15,10 @@ const HomeProduct = ({ product }) => {
         className="text-decoration-none text-secondary"
         to={`/singleProductDetail/${product._id}`}
       >
-        <Card style={{ minHeight: "28rem" }} className="cardHover">
+        <Card
+          style={{ minHeight: "28rem", width: "19rem" }}
+          className="cardHover"
+        >
           <Card.Img
             style={{
               height: "20rem",
