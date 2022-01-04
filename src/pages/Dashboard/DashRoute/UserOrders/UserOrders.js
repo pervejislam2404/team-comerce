@@ -53,20 +53,21 @@ const UserOrders = () => {
         <thead>
           <tr className='text-center'>
             <th className='fs-3 text-white'>Sl</th>
-            <th className='fs-3 text-white'>Order_ID</th>
+            <th className='fs-3 text-white'>Name</th>
+            <th className='fs-3 text-white'>Product Image</th>
             <th className='fs-3 text-white'>Cancel Order</th>
           </tr>
         </thead>
         <tbody>
           {/* looping data */}
 
-          {orders.map(order =>
-            <tr key={order._id} className='text-center'>
+          {orders?.order?.map(item =>
+            <tr key={item._id} className='text-center'>
               <td className='fs-4 text-white '>{++count}</td>
-              <td className='fs-4 text-white '>{order._id}</td>
+              <td className='fs-4 text-white '>{item.name}</td>
               <td className='fs-4 text-white '><Button
                 variant="primary"
-                onClick={() => handleDeleteOrder(order._id)}
+                onClick={() => handleDeleteOrder(item._id)}
               >
                 Remove
               </Button></td>

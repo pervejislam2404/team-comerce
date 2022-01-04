@@ -83,18 +83,18 @@ const UserCart = () => {
       });
   };
   return (
-    <div className="bg-white p-3">
+    <div className="bg-secondary p-3">
       <Row>
         <Col xs={12} md={8}>
-          <Table striped bordered hover>
+          <Table responsive striped bordered hover variant="dark" >
             <thead>
               <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
+                <th >Image</th>
+                <th >Product</th>
+                <th >Price</th>
+                <th >Quantity</th>
+                <th >Total</th>
+                <th >Remove</th>
               </tr>
             </thead>
             {carts.length && (
@@ -105,16 +105,16 @@ const UserCart = () => {
                       <img width="100" src={pd.url} alt="" />
                     </td>
                     <td>
-                      <p className="text-black">{pd.name}</p>
+                      <p className="text-white">{pd.name}</p>
                     </td>
                     <td>
-                      <p className="text-black">$ {pd.price}</p>
+                      <p className="text-white">$ {pd.price}</p>
                     </td>
                     <td>
                       <p>{pd.quantity}</p>
                     </td>
                     <td>
-                      <p className="text-black">$ {pd.total}</p>
+                      <p className="text-white">$ {pd.total}</p>
                     </td>
                     <td>
                       <Button
@@ -133,23 +133,23 @@ const UserCart = () => {
         <Col xs={12} md={4}>
           <h4 className="text-black ms-4 py-2">Cart Totals</h4>
           <Row className="text-black d-flex justify-content-center">
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               Subtotal
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               $ {totalShoppingCost}
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               Total
             </Col>
-            <Col xs={12} md={5} className="py-3 border ">
+            <Col xs={12} md={5} className="py-3 border text-white">
               $ {totalShoppingCost}
             </Col>
           </Row>
           {carts.length && (
             <Button
               variant="primary"
-              className="ms-4 mt-3"
+              className="ms-4 mt-3 text-white"
               onClick={handleOrder}
             >
               Proceed to checkout
