@@ -4,8 +4,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
+import { addToDb } from "../../../utilities/fakedb";
 import "./SingleProductDetail.css";
+
 const SingleProductDetail = () => {
+  const Swal = require("sweetalert2");
   let { id } = useParams();
   const [img, setImg] = useState("");
   const [product, setProduct] = useState({});
@@ -18,13 +21,14 @@ const SingleProductDetail = () => {
       .then((data) => setProduct(data));
   }, [id]);
   useEffect(() => {
-    fetch(`https://limitless-hollows-74908.herokuapp.com/products`)
+    fetch(
+      `https://limitless-hollows-74908.herokuapp.com/getProductByCategory/${product.category}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        const sliceData = data.slice(0, 4);
-        setProducts(sliceData);
+        setProducts(data);
       });
-  }, []);
+  }, [product.category]);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -41,6 +45,14 @@ const SingleProductDetail = () => {
       items: 3,
       paritialVisibilityGutter: 30,
     },
+  };
+  const handleAddToDb = (id) => {
+    addToDb(id);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Add to cart successful",
+    });
   };
   return (
     <div>
@@ -67,7 +79,7 @@ const SingleProductDetail = () => {
                       <div key={img}>
                         <img
                           style={{ cursor: "pointer !important" }}
-                          className="w-75"
+                          // className="w-75"
                           height="70px"
                           src={img}
                           alt=""
@@ -88,17 +100,27 @@ const SingleProductDetail = () => {
               emptySymbol="bi bi-star ratingEmpty"
               fullSymbol="bi bi-star-fill ratingFull"
             />
-            <p>{product.description}</p>
+
             <div className="d-flex justify-content-between">
               <b>
                 Price $ <b>{product.price}</b>
               </b>
-              <p>In stock {product.price}</p>
+              <p>In stock {product.stock}</p>
             </div>
-            <div className="d-flex justify-content-between">
-              <p>color</p>
-              <Button variant="primary">Add to cart</Button>
-            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Deleniti, quia sequi ducimus saepe quam at. Quaerat eos quibusdam
+              modi similique. Sed ullam soluta quis rerum optio officia
+              reprehenderit eum placeat! Facilis fuga illum consequuntur
+              laboriosam omnis perspiciatis minus, officiis libero, aut non
+              quia? Fuga voluptatibus odit distinctio, molestiae minus et?
+            </p>
+            <Button
+              variant="primary"
+              onClick={() => handleAddToDb(product._id)}
+            >
+              Add to cart
+            </Button>
           </div>
         </div>
         {/* review */}
@@ -154,16 +176,16 @@ const SingleProductDetail = () => {
                     <div className="">
                       <img
                         style={{ width: "80px", cursor: "pointer" }}
-                        src={pd.img}
+                        src={pd.url}
                         alt=""
                       />
                     </div>
                     <div className="">
-                      <h4>{pd.name}</h4>
+                      <h6>{pd.name}</h6>
                       <p>
                         <Rating
                           readonly
-                          initialRating={pd.ratting}
+                          initialRating={pd.star}
                           emptySymbol="bi bi-star ratingEmpty"
                           fullSymbol="bi bi-star-fill ratingFull"
                         />

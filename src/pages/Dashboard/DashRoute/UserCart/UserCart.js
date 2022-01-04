@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const UserCart = () => {
+  const Swal = require("sweetalert2");
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [carts, setCarts] = useState([]);
@@ -44,8 +45,23 @@ const UserCart = () => {
   }
 
   const handleRemove = (id) => {
-    removeFromDb(id);
-    window.location.reload();
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, cancel order ",
+      cancelButtonText: "No",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          removeFromDb(id);
+        }
+      })
+      .finally(() => {
+        window.location.reload();
+      });
   };
 
   const handleOrder = () => {
@@ -67,7 +83,7 @@ const UserCart = () => {
       });
   };
   return (
-    <div className="bg-white">
+    <div className="bg-white p-3">
       <Row>
         <Col xs={12} md={8}>
           <Table striped bordered hover>
@@ -130,9 +146,15 @@ const UserCart = () => {
               $ {totalShoppingCost}
             </Col>
           </Row>
-          <Button variant="primary" className="ms-4 mt-3" onClick={handleOrder}>
-            Proceed to checkout
-          </Button>
+          {carts.length && (
+            <Button
+              variant="primary"
+              className="ms-4 mt-3"
+              onClick={handleOrder}
+            >
+              Proceed to checkout
+            </Button>
+          )}
         </Col>
       </Row>
     </div>
