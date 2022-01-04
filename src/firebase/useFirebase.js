@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import firebaseInitialize from './firebase.init';
-import { setErrorMsg, setGoogleSignErrorMsg, setIdToken, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
+import { setAdmin, setErrorMsg, setGoogleSignErrorMsg, setIdToken, setIsLoading, setUser } from "../Redux/StateSlice/StateSlice";
 import swal from "sweetalert";
 
 firebaseInitialize();
@@ -125,12 +125,12 @@ useEffect(() => {
 }, [auth])
 
 
-// useEffect(() => {
-//   axios(`https://guarded-ocean-40685.herokuapp.com/checkAdmin/${user?.email}`)
-//   .then(res=>{
-// //   dispatch(setAdmin(res.data))
-//   })
-// },[user])
+useEffect(() => {
+  axios(`https://limitless-hollows-74908.herokuapp.com/checkAdmin/${user?.email}`)
+  .then(res=>{
+  dispatch(setAdmin(res.data))
+  })
+},[user])
 
 
 // saving-user-to-database
