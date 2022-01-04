@@ -48,9 +48,9 @@ const HomeProducts = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center pb-5 pt-3">
-        <h5 onClick={allClick} className="px-3">FOR ALL</h5>
-        <h5 onClick={menClick} className="px-3">FOR MEN</h5>
-        <h5 onClick={womenClick} className="px-3">FOR WOMEN</h5>
+        <h5 onClick={allClick} className="px-3 pointer">FOR ALL</h5>
+        <h5 onClick={menClick} className="px-3 pointer">FOR MEN</h5>
+        <h5 onClick={womenClick} className="px-3 pointer">FOR WOMEN</h5>
       </div>
 
       <div class="row">

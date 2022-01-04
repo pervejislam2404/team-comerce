@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const ManageAllOrders = () => {
@@ -43,7 +43,7 @@ const ManageAllOrders = () => {
     });
   };
   return (
-    <div>
+    <Container fluid>
       <div className="d-flex justify-content-center pb-5">
         <h2>Manage All Orders</h2>
       </div>
@@ -65,7 +65,7 @@ const ManageAllOrders = () => {
               <tr key={order._id} className='text-center'>
                 <td className='fs-4 text-white '>{++count}</td>
                 <td className='fs-4 text-white '>{order.user}</td>
-                <td className='fs-4 text-white '>{order._id}</td>
+                <td className='fs-4 text-white '>{order._id.slice(20, 25)}</td>
                 <td className='fs-4 text-white '><Button
                   variant="primary"
                   onClick={() => handleDeleteOrder(order._id)}
@@ -110,7 +110,7 @@ const ManageAllOrders = () => {
           ))}
         </div>
       ))} */}
-    </div>
+    </Container>
   );
 };
 
