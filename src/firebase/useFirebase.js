@@ -26,6 +26,7 @@ firebaseInitialize();
             dispatch(setErrorMsg(''));
               const newUser = { email, displayName: name };
               dispatch(setUser(newUser))
+              saveUser(email, name, 'POST');
 
               swal({
                 title: "Sign up success!",
@@ -33,7 +34,6 @@ firebaseInitialize();
               });
              
 
-              saveUser(email, name, 'POST');
               updateProfile(auth.currentUser, {
                   displayName: name
               }).then(() => {
@@ -55,8 +55,8 @@ firebaseInitialize();
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    dispatch(setUser(user));
     saveUser(user?.email, user?.displayName, 'PUT')
+    dispatch(setUser(user));
 
     const destination = location?.state?.from || '/';
     navigate(destination);
@@ -81,7 +81,7 @@ const googleSign = (location,navigate)=>{
       const user = result.user;
       dispatch(setIsLoading(false));
       dispatch(setUser(user));
-      saveUser(user.email, user.displayName,'PUT')
+      saveUser(user?.email, user?.displayName,'PUT')
       const destination = location?.state?.from || '/';
       navigate(destination);
       // ...
