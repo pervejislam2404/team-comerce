@@ -52,6 +52,10 @@ const SingleProductDetail = () => {
       position: "center",
       icon: "success",
       title: "Add to cart successful",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
     });
   };
   return (
