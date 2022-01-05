@@ -48,7 +48,10 @@ const UserReview = () => {
               <img
                 className="rounded-circle"
                 width="100"
-                src={review.img}
+                src={
+                  review.img ||
+                  "https://i.ibb.co/0J1hcsR/businessman-character-avatar-isolated-24877-60111.webp"
+                }
                 alt=""
               />
               <h4>{review.name}</h4>
