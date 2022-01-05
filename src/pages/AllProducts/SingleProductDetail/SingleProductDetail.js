@@ -121,7 +121,7 @@ const SingleProductDetail = () => {
               emptySymbol="bi bi-star ratingEmpty"
               fullSymbol="bi bi-star-fill ratingFull"
             />
-
+            <small>( {product.starCount} Customer review)</small>
             <div className="d-flex justify-content-between">
               <b>
                 Price $ <b>{product.price}</b>
