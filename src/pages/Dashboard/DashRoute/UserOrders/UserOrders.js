@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Table } from "react-bootstrap";
+import { Button, Spinner, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -49,7 +49,13 @@ const UserOrders = () => {
       <div className="d-flex justify-content-center pb-5">
         <h2>My orders</h2>
       </div>
-
+      {orders.length ? (
+        ""
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" variant="info" />
+        </div>
+      )}
       {orders.map((order) => (
         <Table responsive striped bordered hover variant="dark">
           {/* table header */}

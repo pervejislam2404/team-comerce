@@ -22,7 +22,7 @@ const Payment = () => {
     <Container>
       <Row className="d-flex justify-content-center">
         <Col xs={12} md={6} className=" me-2 p-3 shadow">
-          <h2 className="py-3">Website Name</h2>
+          <h2 className="py-3">Team commerce</h2>
           <div className="border p-2">
             <p>Contact: {orders.orderPhone}</p>
             <hr />

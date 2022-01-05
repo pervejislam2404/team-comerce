@@ -31,6 +31,7 @@ import Furniture from "./pages/AllProducts/AllCategories/Furniture";
 import DetailChart from './pages/DetailChart/DetailChart';
 import Alluser from "./pages/Dashboard/Alluser/Alluser";
 import StockUpdate from "./pages/Dashboard/DashRoute/Stockupdate/StockUpdate";
+import AddReview from "./pages/Dashboard/DashRoute/AddReview/AddReview";
 
 function App() {
   useEffect(() => {
@@ -44,7 +45,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
 
- <Route path="/chart" element={<DetailChart />} />
+          <Route path="/chart" element={<DetailChart />} />
 
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
@@ -109,6 +110,12 @@ function App() {
                 </ManageAllOrders>
               }
             />
+            <Route
+              path="/dashboard/review"
+              element={
+                <AddReview />
+              }
+            />
 
             <Route
               path="/dashboard/stockUpdate"
@@ -117,7 +124,7 @@ function App() {
               }
             />
             <Route path="/dashboard/cart" element={<UserCart />} />
-           
+
 
 
             <Route
