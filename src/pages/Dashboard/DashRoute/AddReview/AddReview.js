@@ -48,7 +48,7 @@ const AddReview = () => {
           required
           placeholder="Description"
           className="reservation w-100"
-          {...register("descript")}
+          {...register("description")}
         />
         <input
           type="number"
