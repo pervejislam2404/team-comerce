@@ -43,7 +43,7 @@ const ContactInformation = () => {
       <Row className="d-flex justify-content-center ">
         <Col xs={12} md={6} className=" me-5 p-3 shadow">
           <div className="">
-            <h1>Website Name</h1>
+            <h1>Team commerce</h1>
             <h4>Shipping address</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input

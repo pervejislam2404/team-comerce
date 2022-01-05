@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import HomeProduct from "../HomeProducts/HomeProduct";
 
 const GenderProduct = () => {
@@ -48,11 +49,17 @@ const GenderProduct = () => {
         </h5>
       </div>
 
-      <div className="row">
-        {display?.map((product) => (
-          <HomeProduct product={product} key={product._id} />
-        ))}
-      </div>
+      {display.length ? (
+        <div className="row">
+          {display?.map((product) => (
+            <HomeProduct product={product} key={product._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" variant="info" />
+        </div>
+      )}
     </div>
   );
 };
