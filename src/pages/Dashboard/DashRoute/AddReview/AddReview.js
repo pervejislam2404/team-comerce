@@ -59,7 +59,7 @@ const AddReview = () => {
           className="reservation w-100"
           {...register("star")}
         />
-        <button className="adminAdd btncolr w-25 mx-auto mt-4 fs-3 ">
+        <button className="adminAdd btncolr w-50 mx-auto mt-4 fs-3 ">
           Add
         </button>
       </form>
