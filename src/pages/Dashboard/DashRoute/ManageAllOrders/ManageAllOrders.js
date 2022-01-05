@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Table } from "react-bootstrap";
+import { Button, Container, Spinner, Table } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const ManageAllOrders = () => {
@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
   const user = useSelector((state) => state.statesCounter.user);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`https://limitless-hollows-74908.herokuapp.com/orders/${user.email}`)
+    fetch(`https://limitless-hollows-74908.herokuapp.com/allOrders`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [orders, user.email]);
@@ -71,6 +71,13 @@ const ManageAllOrders = () => {
         <h2>Manage All Orders</h2>
       </div>
       {orders.length ? (
+        ""
+      ) : (
+        <div className="d-flex justify-content-center">
+          <Spinner animation="grow" variant="info" />
+        </div>
+      )}
+      {orders.length && (
         <Table responsive striped bordered hover variant="dark">
           {/* table header */}
           <thead>
@@ -91,7 +98,9 @@ const ManageAllOrders = () => {
                 <td className="fs-4 text-white ">{++count}</td>
                 <td className="fs-4 text-white ">{order.user}</td>
                 <td className="fs-4 text-white ">{order._id.slice(20, 25)}</td>
-                <td className="fs-4 text-white ">{order.payment && "Paid"}</td>
+                <td className="fs-4 text-white ">
+                  {order.payment ? "Paid" : "Unpaid"}
+                </td>
                 <td className="fs-4 text-white ">
                   {order.status === "approved" ? (
                     "Approved"
@@ -116,8 +125,6 @@ const ManageAllOrders = () => {
             ))}
           </tbody>
         </Table>
-      ) : (
-        ""
       )}
     </Container>
   );
