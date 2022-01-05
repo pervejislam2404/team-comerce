@@ -49,13 +49,6 @@ const UserOrders = () => {
       <div className="d-flex justify-content-center pb-5">
         <h2>My orders</h2>
       </div>
-      {orders.length ? (
-        ""
-      ) : (
-        <div className="d-flex justify-content-center">
-          <Spinner animation="grow" variant="info" />
-        </div>
-      )}
       {orders.map((order) => (
         <Table responsive striped bordered hover variant="dark">
           {/* table header */}
